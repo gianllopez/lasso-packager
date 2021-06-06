@@ -1,0 +1,33 @@
+@import '../variables';
+
+#burger-menu {
+  width: 45px; height: 30px;
+  margin: 20px 0 0 15px;
+  .blade {
+    height: 7px;
+    margin-bottom: 5px;
+    pointer-events: none;
+    transition-duration: .25s;
+    border-radius: 10px;
+    background-color: $lightBlue;
+    &.blade-1-anim { opacity: 0 }
+    &.blade-3-anim {
+      margin-top: -12px; // height + margin-bottom
+      transform: rotate(45deg);
+      margin-bottom: 0;
+    }
+  }
+  .blade-2 {
+    position: relative;
+    background-color: transparent;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      @extend .blade;
+    }
+    &::before { width: 25% }
+    &::after { width: 67%; right: 0 }
+    &.blade-2-anim { transform: rotate(-45deg) }
+  }
+}
