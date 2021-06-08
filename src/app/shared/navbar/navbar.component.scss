@@ -1,33 +1,57 @@
 @import '../variables';
 
-#burger-menu {
-  width: 45px; height: 30px;
-  margin: 20px 0 0 15px;
-  .blade {
-    height: 7px;
-    margin-bottom: 5px;
-    pointer-events: none;
-    transition-duration: .25s;
-    border-radius: $radiusBase;
-    background-color: $lightBlue;
-    &.blade-1-anim { opacity: 0 }
-    &.blade-3-anim {
-      margin-top: -12px; // height + margin-bottom
-      transform: rotate(45deg);
-      margin-bottom: 0;
+:host {
+  #burger-menu {
+    width: 45px; height: 30px;
+    margin: 20px 0 0 15px;
+    transition: .3s;
+    .line {
+      height: 7px;
+      margin-bottom: 5px;
+      pointer-events: none;
+      transition-duration: .25s;
+      border-radius: $radiusBase;
+      background-color: $lightBlue;
+      &.l1-anim { opacity: 0 }
+      &.l3-anim {
+        margin-top: -12px; // height + margin-bottom
+        transform: rotate(45deg);
+        margin-bottom: 0;
+      }
     }
+    .l2 {
+      position: relative;
+      background-color: transparent;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        @extend .line;
+      }
+      &::before { width: 25% }
+      &::after { width: 67%; right: 0 }
+      &.l2-anim { transform: rotate(-45deg) }
+    }
+    &.opened-pos { margin: 20px 15px 0 auto }
   }
-  .blade-2 {
-    position: relative;
-    background-color: transparent;
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      @extend .blade;
+  #nav-links {
+    position: fixed; top: 0; z-index: 1;
+    width: 50%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $lightGray; 
+    border-right: 5px solid $lightBlue;
+    transition-duration: .3s;
+    transform: translateX(calc(-100% + 5px));
+    a {
+      background-color: $midGray;
+      width: 90%;
+      padding: 0.5em 0;
+      border-radius: 0 5px 5px 0;
+      text-align: center;
+      margin-bottom: 10px;
     }
-    &::before { width: 25% }
-    &::after { width: 67%; right: 0 }
-    &.blade-2-anim { transform: rotate(-45deg) }
+    &.opened-links { transform: initial !important }
   }
 }
