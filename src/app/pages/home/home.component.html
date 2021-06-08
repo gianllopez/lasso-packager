@@ -9,7 +9,8 @@
   </div>
   <div id="results">
     <p>Results will appear here</p>
-    <!-- Here goes the real time backend results -->
+    <song *ngFor="let song of testData" [song]="song"></song>
+    
   </div>
 </div>
 <div id="not-found-action">
