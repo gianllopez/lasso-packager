@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'navbar',
@@ -6,11 +6,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.scss']})
 export class NavbarComponent {
 
-  @HostListener('click', ['$event']) onClick (e: MouseEvent) {
-    let { children } = (e.target as Element);
-    children[0].classList.toggle('blade-1-anim');
-    children[1].classList.toggle('blade-2-anim');
-    children[2].classList.toggle('blade-3-anim'); 
-  };
+  open = false;
   
+  setOpen() { this.open = !this.open };
+
 };
