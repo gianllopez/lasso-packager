@@ -1,0 +1,16 @@
+<div class="song" [attr.data-title]="formatTitle()">
+  <figure>
+    <img [src]="song.cover" [alt]="song.artist + ' song from the ' + song.album + ' album'">
+  </figure>
+  <div>
+    <div class="tags">
+      <p>{{ song.title }}</p>
+      <p>{{ song.artist }}</p>
+      <p>{{ song.album }}</p>
+    </div>
+    <div class="actions">
+      <span class="iconify" data-icon="fluent:arrow-download-16-filled"></span>
+      <span class="iconify" data-icon="ic:round-favorite-border"></span>
+    </div>
+  </div>
+</div>
