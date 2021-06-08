@@ -1,4 +1,5 @@
-@import '../../../../shared/variables';
+@import '../../../../shared/sass/variables';
+@import '../../../../shared/sass/utils';
 
 .song {
   display: flex;
@@ -20,6 +21,7 @@
     font-size: min(4vw, 26px);
     text-align: left;
     overflow: scroll; // for long tags overflow
+    @include hide-scrollbar;
     .tags {
       p { white-space: nowrap;
         &:not(:first-of-type) {
@@ -29,9 +31,15 @@
       }
     }
     .actions {
-      font-size: 1.5em;
       margin: 0 min(4%, 15px) 0 5px;
       display: flex; // for long tags overflow
+      img {
+        &.download-btn {
+          width: min(5vw, 25px);
+          margin-right: 3px;
+        }
+        &.fav-btn { width: min(6vw, 30px) }
+      }
     }
   }
 }

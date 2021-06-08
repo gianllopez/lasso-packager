@@ -9,8 +9,13 @@
       <p>{{ song.album }}</p>
     </div>
     <div class="actions">
-      <span class="iconify" data-icon="fluent:arrow-download-16-filled"></span>
-      <span class="iconify" data-icon="ic:round-favorite-border"></span>
+      <img
+        class="download-btn"
+        [src]="getIcon('download')" alt=""/>
+      <img
+        class="fav-btn"
+        (click)="setFav()"
+        [src]="getIcon(isfav ? 'fav' : 'no-fav')" alt=""/>
     </div>
   </div>
 </div>
