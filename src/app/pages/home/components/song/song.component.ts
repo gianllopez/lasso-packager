@@ -8,7 +8,15 @@ import { Song } from 'src/app/shared/shared.models';
 export class SongComponent {
 
   @Input() song!: Song;
+  isfav!: boolean;
 
   formatTitle = () => this.song?.title.replace(' ', '-').toLowerCase();
+
+  getIcon = (icon: string) => `'../../../../../assets/icons/${icon}.svg`;
+
+  setFav() {
+    this.isfav = !this.isfav;
+    console.log('Fetching fav...');
+  };
 
 };
