@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../sass/variables';
 
 :host {
   #burger-menu {
@@ -14,7 +14,7 @@
       background-color: $lightBlue;
       &.l1-anim { opacity: 0 }
       &.l3-anim {
-        margin-top: -12px; // height + margin-bottom
+        margin-top: -12px;
         transform: rotate(45deg);
         margin-bottom: 0;
       }
@@ -32,7 +32,7 @@
       &::after { width: 67%; right: 0 }
       &.l2-anim { transform: rotate(-45deg) }
     }
-    &.opened-pos { margin: 20px 15px 0 auto }
+    &.opened-pos { margin: 20px 15px 0 calc(100vw - 60px) }
   }
   #nav-links {
     position: fixed; top: 0; z-index: 1;

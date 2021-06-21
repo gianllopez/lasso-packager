@@ -1,0 +1,45 @@
+@import '../../../../shared/sass/variables';
+@import '../../../../shared/sass/utils';
+
+.song {
+  display: flex;
+  width: calc(100% - 20px);
+  margin: 0 auto .5em auto;
+  background-color: white;
+  border-radius: $radiusBase;
+  figure, > div { display: flex; align-items: center }
+  figure {    
+    width: 18.5%; min-width: 50px;
+    margin: min(2%, 10px);
+    img {
+      width: 100%;
+      border-radius: 6px;
+    }
+  }
+  > div {
+    flex: 1; justify-content: space-between;
+    font-size: min(4vw, 26px);
+    text-align: left;
+    overflow: scroll; // for long tags overflow
+    @include hide-scrollbar;
+    .tags {
+      p { white-space: nowrap;
+        &:not(:first-of-type) {
+          color: $darkGray;
+          font-size: .9em;
+        }
+      }
+    }
+    .actions {
+      margin: 0 min(4%, 15px) 0 5px;
+      display: flex; // for long tags overflow
+      img {
+        &.download-btn {
+          width: min(5vw, 25px);
+          margin-right: 3px;
+        }
+        &.fav-btn { width: min(6vw, 30px) }
+      }
+    }
+  }
+}
