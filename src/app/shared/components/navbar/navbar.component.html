@@ -1,7 +1,7 @@
 <div id="burger-menu" (click)="setOpen()" [ngClass]="{'opened-pos': open}">
-  <div class="line l1" [ngClass]="{'l1-anim': open}"></div>
-  <div class="line l2" [ngClass]="{'l2-anim': open}"></div>
-  <div class="line l3" [ngClass]="{'l3-anim': open}"></div>
+  <div class="line" id="l1"></div>
+  <div class="line" id="l2"></div>
+  <div class="line" id="l3"></div>
 </div>
 <div id="nav-links" [ngClass]="{'opened-links': open}">
   <a href="">Link 1</a>

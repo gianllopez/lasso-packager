@@ -12,14 +12,8 @@
       transition-duration: .25s;
       border-radius: $radiusBase;
       background-color: $lightBlue;
-      &.l1-anim { opacity: 0 }
-      &.l3-anim {
-        margin-top: -12px;
-        transform: rotate(45deg);
-        margin-bottom: 0;
-      }
     }
-    .l2 {
+    #l2 {
       position: relative;
       background-color: transparent;
       &::before, &::after {
@@ -30,9 +24,16 @@
       }
       &::before { width: 25% }
       &::after { width: 67%; right: 0 }
-      &.l2-anim { transform: rotate(-45deg) }
     }
-    &.opened-pos { margin: 20px 15px 0 calc(100vw - 60px) }
+    &.opened-pos { margin: 20px 15px 0 calc(100vw - 60px);
+      #l1 { opacity: 0 }
+      #l2 { transform: rotate(-45deg) }
+      #l3 {
+        margin-top: -12px;
+        transform: rotate(45deg);
+        margin-bottom: 0;
+      }
+    }
   }
   #nav-links {
     position: fixed; top: 0; z-index: 1;

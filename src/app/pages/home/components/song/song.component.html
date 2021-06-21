@@ -11,7 +11,8 @@
     <div class="actions">
       <img
         class="download-btn"
-        [src]="getIcon('download')" alt=""/>
+        (click)="setDownload()"
+        [src]="getIcon(downloading ? 'downloading' : 'download')" alt=""/>
       <img
         class="fav-btn"
         (click)="setFav()"
