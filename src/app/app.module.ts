@@ -7,7 +7,10 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SongComponent } from './pages/home/components/song/song.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, SongComponent],
+  declarations: [
+    AppComponent, HomeComponent,
+    NavbarComponent, SongComponent
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]})
