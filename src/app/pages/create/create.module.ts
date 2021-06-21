@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CreateRoutingModule } from './create-routing.module';
 import { UrlComponent } from './url/url.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,8 @@ import { UrlComponent } from './url/url.component';
   ],
   imports: [
     CommonModule,
-    CreateRoutingModule
+    CreateRoutingModule,
+    SharedModule
   ]
 })
-export class CreateModule { }
+export class CreateModule {};

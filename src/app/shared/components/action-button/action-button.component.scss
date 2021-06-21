@@ -1,0 +1,19 @@
+@import '../../sass/variables';
+
+.action-btn {
+  width: 100%;
+  display: flex;
+  padding: 13.5px;
+  border: none;
+  border-radius: 5px;
+  background-color: $babyGreen;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin-right: 7px;
+    font-weight: bold;
+    font-size: 1.15em;
+  }
+  img { width: 13px }
+}
