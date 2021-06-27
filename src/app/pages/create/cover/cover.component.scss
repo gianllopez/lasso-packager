@@ -1,0 +1,38 @@
+@import '../../../shared/sass/variables';
+
+.add-cover {
+  height: calc(100vh - 50px);
+  overflow-y: hidden; // to avoid useless scroll
+  > * { margin: 1em }
+  .cover-place {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55%;
+    background-color: $lightGray;
+    border-radius: 5px;
+    p {
+      color: $darkGray;
+      font-weight: bold;
+      font-size: 1.25em;
+    }
+  }
+  .cover-input {
+    position: relative;
+    display: flex; align-items: center;
+    span {
+      text-align: center;
+      margin: 2.5px 0;
+      font-size: .85em;
+    }
+    .upload-btn {
+      position: absolute; right: 4px;
+      height: calc(100% - 8px);
+      padding: 0 20px;
+      border: none;
+      color: white;
+      background-color: $darkGray;
+      border-radius: 3px;
+    }
+  }
+}
