@@ -13,7 +13,7 @@ export class SongComponent {
 
   formatTitle = () => this.song?.title.replace(' ', '-').toLowerCase();
 
-  getIcon = (icon: string) => `'../../../../../assets/icons/${icon}.svg`;
+  getIcon = (icon: string) => `'../../../../../assets/icons/actions/${icon}.svg`;
 
   setDownload() {
     this.downloading = !this.downloading;
