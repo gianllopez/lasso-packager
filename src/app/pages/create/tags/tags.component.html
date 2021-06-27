@@ -1,0 +1,16 @@
+<div class="tags-page">
+  <div class="tags-info">
+    <h2>Add your song tags</h2>
+    <p>To complete your song creation, you need to provide the following data:</p>
+  </div>
+  <div class="tags-entries">
+    <custom-input placeholder="Title"></custom-input>
+    <custom-input placeholder="Artist"></custom-input>
+    <custom-input placeholder="Album"></custom-input>
+    <custom-input placeholder="Genre"></custom-input>
+  </div>
+  <div [style]="'display: flex; margin-top: 1em'">
+    <action-button [goback]="true"></action-button>
+    <action-button [style]="'flex: 1; margin-left: 10px'"></action-button>
+  </div>
+</div>
