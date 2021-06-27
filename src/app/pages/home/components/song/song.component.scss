@@ -7,22 +7,24 @@
   margin: 0 auto .5em auto;
   background-color: white;
   border-radius: $radiusBase;
+  max-height: 80px;
   figure, > div { display: flex; align-items: center }
   figure {    
-    width: 18.5%; min-width: 50px;
+    // width: 18.5%;
+    min-width: 50px;
     margin: min(2%, 10px);
     img {
-      width: 100%;
+      width: auto; max-height: 65px;
       border-radius: 6px;
     }
   }
   > div {
     flex: 1; justify-content: space-between;
-    font-size: min(4vw, 26px);
+    font-size: min(4vw, 17px);
     text-align: left;
     overflow: scroll; // for long tags overflow
     @include hide-scrollbar;
-    .tags {
+    .song-tags {
       p { white-space: nowrap;
         &:not(:first-of-type) {
           color: $darkGray;
@@ -35,10 +37,10 @@
       display: flex; // for long tags overflow
       img {
         &.download-btn {
-          width: min(5vw, 25px);
+          width: min(5vw, 20px);
           margin-right: 3px;
         }
-        &.fav-btn { width: min(6vw, 30px) }
+        &.fav-btn { width: min(6vw, 25px) }
       }
     }
   }

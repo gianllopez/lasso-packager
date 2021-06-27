@@ -45,6 +45,7 @@
     border-right: 5px solid $lightBlue;
     transition-duration: .3s;
     transform: translateX(calc(-100% + 5px));
+    max-width: 200px;
     a {
       background-color: $midGray;
       width: 90%;

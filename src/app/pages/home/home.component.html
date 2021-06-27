@@ -1,19 +1,18 @@
-<div id="presentation">
+<div class="presentation">
   <h1>Lasso</h1>
   <p>A music downloader</p>
 </div>
-<div id="query-interaction">
+<div class="query-interaction">
   <div class="search-input">
     <span class="iconify" data-icon="bx:bx-search-alt"></span>
     <input type="text" placeholder="What song are you searching?" spellcheck="false">
   </div>
-  <div id="results">
+  <div class="results">
     <p>Results will appear here</p>
     <song *ngFor="let song of testData" [song]="song"></song>
-    
   </div>
 </div>
-<div id="not-found-action">
+<div class="not-found-action">
   Not found song?
   <a href="">Let's create that one!</a> <!-- Change -->
 </div>
