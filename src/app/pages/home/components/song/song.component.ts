@@ -8,20 +8,16 @@ import { Song } from 'src/app/shared/shared.models';
 export class SongComponent {
 
   @Input() song!: Song;
-  isfav!: boolean;
-  downloading!: boolean;
 
   formatTitle = () => this.song?.title.replace(' ', '-').toLowerCase();
 
-  getIcon = (icon: string) => `'../../../../../assets/icons/actions/${icon}.svg`;
+  getIcon = (icon: string) => `../../../../../assets/icons/actions/${icon}.svg`;
 
   setDownload() {
-    this.downloading = !this.downloading;
     console.log('Fetching download...');
   };
 
   setFav() {
-    this.isfav = !this.isfav;
     console.log('Fetching fav...');
   };
 

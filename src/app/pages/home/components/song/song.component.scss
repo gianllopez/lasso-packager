@@ -36,11 +36,9 @@
       margin: 0 min(4%, 15px) 0 5px;
       display: flex; // for long tags overflow
       img {
-        &.download-btn {
-          width: min(5vw, 20px);
-          margin-right: 3px;
-        }
-        &.fav-btn { width: min(6vw, 25px) }
+        width: min(6vw, 25px);
+        margin-right: 7px;
+        &.download { width: min(5vw, 20px) }
       }
     }
   }

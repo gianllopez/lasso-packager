@@ -9,14 +9,24 @@
       <p>{{ song.album }}</p>
     </div>
     <div class="actions">
-      <img
-        class="download-btn"
+      <img class="download"
         (click)="setDownload()"
-        [src]="getIcon(downloading ? 'downloading' : 'download')" alt=""/>
-      <img
-        class="fav-btn"
+        [src]="getIcon('download')" alt=""
+        iconName="download"
+      />
+      <img class="fav"
         (click)="setFav()"
-        [src]="getIcon(isfav ? 'fav' : 'no-fav')" alt=""/>
+        [src]="getIcon('fav')" alt=""
+        iconName="fav"
+      />
+      <img class="spotify"
+        [src]="getIcon('spotify')" alt=""
+        iconName="spotify"
+      />
+      <img class="deezer"
+        [src]="getIcon('deezer')" alt=""
+        iconName="deezer"
+      />
     </div>
   </div>
 </div>
