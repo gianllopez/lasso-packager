@@ -1,18 +1,19 @@
 @import '../../shared/sass/variables';
 
 :host {
-  #presentation {
+  .presentation {
     margin: 1.5em 0;
     text-align: center;
     font-size: 1.3em;
     p { font-weight: bold; color: $darkGray }
   }
-  #query-interaction {
+  .query-interaction {
     width: 90%; margin: 2.5em auto 1em;
     .search-input {
       position: relative;
       display: flex;
       align-items: center;
+      margin: auto;
       svg {
         position: absolute;
         height: 100%;
@@ -32,14 +33,23 @@
         outline: none;
       }
     }
-    #results {
+    .results {
       background-color: $lightGray;
       border-radius: 10px;
       padding: 5em 0;
       text-align: center;
-      margin-top: .7em;
+      margin: .7em auto 0 auto;
       p { color: $darkGray }
     }
+    .search-input, .results {
+      max-width: 600px;
+    }
+  }
+  .not-found-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5em;
   }
   #not-found-action {
     display: flex;

@@ -1,0 +1,15 @@
+@import '../../../shared/sass/variables';
+
+.tags-page {
+  margin: 2em 1em;
+  .tags-info {
+    text-align: center;
+    p { color: $darkGray }
+  }
+  .tags-entries {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    custom-input { margin-bottom: 1em }
+  }
+}

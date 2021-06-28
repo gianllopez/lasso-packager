@@ -1,0 +1,23 @@
+@import '../../sass/variables';
+
+.action-btn {
+  width: 100%; height: 40px;
+  display: flex;
+  padding: 13.5px;
+  border: none;
+  border-radius: 5px;
+  background-color: $babyGreen;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin-right: 7px;
+    font-weight: bold;
+    font-size: 1.15em;
+  }
+  img { width: 13px }
+  &.go-back {
+    background-color: $passionRed;
+    img { transform: rotate(180deg) }
+  }
+}

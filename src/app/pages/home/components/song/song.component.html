@@ -3,7 +3,7 @@
     <img [src]="song.cover" [alt]="song.artist + ' song from the ' + song.album + ' album'">
   </figure>
   <div>
-    <div class="tags">
+    <div class="song-tags">
       <p>{{ song.title }}</p>
       <p>{{ song.artist }}</p>
       <p>{{ song.album }}</p>
@@ -11,7 +11,8 @@
     <div class="actions">
       <img
         class="download-btn"
-        [src]="getIcon('download')" alt=""/>
+        (click)="setDownload()"
+        [src]="getIcon(downloading ? 'downloading' : 'download')" alt=""/>
       <img
         class="fav-btn"
         (click)="setFav()"

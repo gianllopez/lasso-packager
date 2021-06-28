@@ -1,0 +1,15 @@
+@import '../../../shared/sass/variables';
+
+.url-page {
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  .url-presentation {
+    text-align: center;
+    p { color: $darkGray; margin: 5px 0 10px 0 }
+  }
+  a { margin-top: 10px }
+}
