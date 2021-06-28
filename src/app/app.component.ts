@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app',
-  template: `
-    <navbar></navbar>
-      <router-outlet></router-outlet>`})
-export class AppComponent {};
+  templateUrl: './app.component.html'})
+export class AppComponent {
+
+  lottieOptions: AnimationOptions = { path: '../assets/lotties/blue-waves.json' };
+
+};

@@ -5,9 +5,9 @@ import { CoverComponent } from './cover/cover.component';
 import { TagsComponent } from './tags/tags.component';
 
 const routes: Routes = [
-  { path: 'url', component: UrlComponent },
-  { path: 'cover', component: CoverComponent },
-  { path: 'tags', component: TagsComponent }
+  { path: 'url', component: UrlComponent , data: { waveLottie: 'blue-waves.json'}},
+  { path: 'cover', component: CoverComponent , data: { waveLottie: 'blue-waves.json'}},
+  { path: 'tags', component: TagsComponent, data: { waveLottie: 'blue-waves.json'} }
 ];
 
 @NgModule({
