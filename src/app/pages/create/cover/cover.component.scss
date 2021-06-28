@@ -1,14 +1,16 @@
 @import '../../../shared/sass/variables';
 
 .add-cover {
-  height: calc(100vh - 50px);
-  overflow-y: hidden; // to avoid useless scroll
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%; max-width: 600px;
+  transform: translate(-50%, -50%);
   > * { margin: 1em }
   .cover-place {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 55%;
+    height: 60vh; max-height: 400px;
     background-color: $lightGray;
     border-radius: 5px;
     p {

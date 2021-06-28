@@ -1,15 +1,22 @@
 @import '../../../shared/sass/variables';
 
 .tags-page {
-  margin: 2em 1em;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: calc(100% - 2em);
+  transform: translate(-50%, -50%);
   .tags-info {
     text-align: center;
-    p { color: $darkGray }
+    p { color: $darkGray; margin-top: 5px; }
   }
   .tags-entries {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
     custom-input { margin-bottom: 1em }
+  }
+  .tags-entries, .actions-btns {
+    max-width: 475px;
+    margin: 1em auto 0 auto;
   }
 }
