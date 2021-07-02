@@ -7,9 +7,9 @@ import { Song } from 'src/app/shared/shared.models';
   styleUrls: ['./song.component.scss']})
 export class SongComponent {
 
-  @Input() song!: Song;
+  @Input() data!: Song;
 
-  formatTitle = () => this.song?.title.replace(' ', '-').toLowerCase();
+  formatTitle = () => this.data?.title.replace(' ', '-').toLowerCase();
 
   getIcon = (icon: string) => `../../../../../assets/icons/actions/${icon}.svg`;
 

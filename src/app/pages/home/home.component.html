@@ -14,7 +14,10 @@
     />
   </div>
   <div class="results">
-    <p>Results will appear here</p>
+    <p *ngIf="!songs">Results will appear here</p>
+    <div class="songs-list" *ngIf="songs">
+      <song *ngFor="let song of songs | async" [data]="song"></song>
+    </div>
   </div>
 </div>
 <div class="not-found-action">

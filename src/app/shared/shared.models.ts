@@ -1,6 +1,9 @@
 export interface Song {
-  cover: string;
   title: string;
-  artist: string;
   album: string;
-}
+  album_type: 'album' | 'single';
+  artist: string;
+  cover: string;
+  duration: string;
+  explicit: boolean;
+};

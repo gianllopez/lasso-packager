@@ -1,12 +1,12 @@
 <div class="song" [attr.data-title]="formatTitle()">
   <figure>
-    <img [src]="song.cover" [alt]="song.artist + ' song from the ' + song.album + ' album'">
+    <img [src]="data.cover" [alt]="data.artist + ' song from the ' + data.album + ' album'">
   </figure>
   <div>
     <div class="song-tags">
-      <p>{{ song.title }}</p>
-      <p>{{ song.artist }}</p>
-      <p>{{ song.album }}</p>
+      <p>{{ data.title }}</p>
+      <p>{{ data.artist }}</p>
+      <p>{{ data.album }}</p>
     </div>
     <div class="actions">
       <img class="download"

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
+import { Song } from 'src/app/shared/shared.models';
 
 @Injectable({ providedIn: 'root' })
 export class FetcherService {
@@ -8,10 +9,7 @@ export class FetcherService {
   constructor(private http: HttpClient) {};
 
   getSong(title: string) {
-    if (title) {
-      this.http.post(environment.api, { title })
-        .subscribe(data => console.log(data))
-    };
+    return this.http.post<Song[]>(env.api, { title });
   };
 
 };
