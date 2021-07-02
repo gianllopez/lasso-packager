@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 
 @Component({
   selector: 'app-home',
@@ -6,40 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']})
 export class HomeComponent {
 
-  testData = [
-    {
-      cover: 'https://www.audiokat.com/recursos/albums/004/03562g.jpg',
-      title: 'Que Lío',
-      artist: 'Héctor Lavoe ft. Willie Colón',
-      album: 'The Hustler'
-    },
-    // {
-    //   cover: 'https://www.audiokat.com/recursos/albums/004/03562g.jpg',
-    //   title: 'Que Lío',
-    //   artist: 'Héctor Lavoe ft. Willie Colón',
-    //   album: 'The Hustler'
-    // },
-    
-    // {
-    //   cover: 'https://www.audiokat.com/recursos/albums/004/03562g.jpg',
-    //   title: 'Que Lío',
-    //   artist: 'Héctor Lavoe ft. Willie Colón',
-    //   album: 'The Hustler'
-    // },
-    
-    // {
-    //   cover: 'https://www.audiokat.com/recursos/albums/004/03562g.jpg',
-    //   title: 'Que Lío',
-    //   artist: 'Héctor Lavoe ft. Willie Colón',
-    //   album: 'The Hustler'
-    // },
-    
-    // {
-    //   cover: 'https://www.audiokat.com/recursos/albums/004/03562g.jpg',
-    //   title: 'Que Lío',
-    //   artist: 'Héctor Lavoe ft. Willie Colón',
-    //   album: 'The Hustler'
-    // },
-  ];
+  song = '';
+
+  constructor(private fetcher: FetcherService) {};
+
+  onSongChange(): void {
+    this.fetcher.getSong(this.song);
+  };
 
 };

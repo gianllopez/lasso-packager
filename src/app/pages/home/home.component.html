@@ -5,11 +5,16 @@
 <div class="query-interaction">
   <div class="search-input">
     <span class="iconify" data-icon="bx:bx-search-alt"></span>
-    <input type="text" placeholder="What song are you searching?" spellcheck="false">
+    <input
+      type="text"
+      placeholder="What song are you searching?"
+      spellcheck="false"
+      [(ngModel)]="song"
+      (input)="onSongChange()"
+    />
   </div>
   <div class="results">
     <p>Results will appear here</p>
-    <song *ngFor="let song of testData" [song]="song"></song>
   </div>
 </div>
 <div class="not-found-action">
