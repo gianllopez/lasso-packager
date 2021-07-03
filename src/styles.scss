@@ -12,9 +12,13 @@ body { overflow-x: hidden } // to hide the horizontal scroll bar
 
 a { color: $lightBlue }
 
-ng-lottie > div {
-  position: absolute; bottom: 0;
-  display: flex; align-items: flex-end;
-  width: 100%;
-  svg { @media (max-width: 595px) { height: auto !important } }
+ng-lottie {
+  > div {
+    position: fixed; bottom: 0;
+    display: flex; align-items: flex-end;
+    transition-duration: .25s;
+    width: 100%;
+    svg { @media (max-width: 595px) { height: auto !important } }
+  }
+  &.hide-lottie { transform: translateY(100%) }
 }

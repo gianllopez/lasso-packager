@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 import { Song } from 'src/app/shared/shared.models';

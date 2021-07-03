@@ -1,3 +1,7 @@
 <navbar></navbar>
 <router-outlet></router-outlet>
-<ng-lottie [options]="lottieOptions" height="50px"></ng-lottie>
+<ng-lottie
+  [ngClass]="{ 'hide-lottie': hideLottie }"
+  (window:scroll)="hideLottieOnScroll()"
+  [options]="lottieOptions"
+  height="50px"></ng-lottie>

@@ -25,7 +25,11 @@
     overflow: scroll; // for long tags overflow
     @include hide-scrollbar;
     .song-tags {
-      p { white-space: nowrap;
+      p {
+        white-space: nowrap;
+        max-width: 355px;
+        text-overflow: ellipsis;
+        overflow: hidden;
         &:not(:first-of-type) {
           color: $darkGray;
           font-size: .9em;
