@@ -14,9 +14,9 @@
     />
   </div>
   <div class="results">
-    <p *ngIf="!songs">Results will appear here</p>
-    <div class="songs-list" *ngIf="songs | async as songsList">
-      <song *ngFor="let song of songsList" [data]="song"></song>
+    <p *ngIf="!songs.length">Results will appear here</p>
+    <div class="songs-list" *ngIf="songs.length">
+      <song *ngFor="let song of songs" [data]="song"></song>
     </div>
   </div>
 </div>
