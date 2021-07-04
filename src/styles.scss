@@ -8,7 +8,18 @@
   margin: 0; padding: 0;
 }
 
-body { overflow-x: hidden } // to hide the horizontal scroll bar
+body {
+  overflow: hidden scroll;
+  &::-webkit-scrollbar {
+    background-color: $lightGray;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-button { display: none }
+  &::-webkit-scrollbar-thumb {
+    background-color: $lightBlue;
+    border-radius: 10px;
+  }
+}
 
 a { color: $lightBlue }
 
