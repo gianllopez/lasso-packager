@@ -13,7 +13,8 @@
       (input)="onSongChange()"
     />
   </div>
-  <div class="results" [ngClass]="{ 'no-results': !songs.length }">
+  <div class="results" (window:scroll)="lottieOnScroll()"
+    [ngClass]="{ 'no-results': !songs.length }">
     <p *ngIf="!songs.length">Results will appear here</p>
     <ng-container *ngIf="songs.length">
       <song
@@ -28,6 +29,6 @@
   <a href="">Let's create that one!</a> <!-- Change -->
 </div>
 <ng-lottie  
-  [ngClass]="{ 'to-top-lottie': songs.length }"
+  [ngClass]="{ 'top-lottie': songs.length, 'on-scroll': hideLottie }"
   [options]="lottieOptions"
   height="50px"></ng-lottie>

@@ -18,6 +18,8 @@ export class HomeComponent implements OnDestroy {
   songs: Song[] = [];
   results!: Subscription;
 
+  hideLottie = false;
+
   constructor(private fetcher: FetcherService) {};
 
   onSongChange(): void {
@@ -29,6 +31,8 @@ export class HomeComponent implements OnDestroy {
       this.songs = [];
     };
   };
+
+  lottieOnScroll() { this.hideLottie = window.scrollY > 0 };
 
   ngOnDestroy() { this.results.unsubscribe() };
 

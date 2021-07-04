@@ -30,7 +30,10 @@ ng-lottie {
     display: flex;
     align-items: flex-end;  
     svg { @media (max-width: 595px) { height: auto !important } }  
-    transition-duration: .25s;
+    transition-duration: .5s;
   }
-  &.to-top-lottie { transform: translateY(100%) }
+  &.top-lottie {
+    > div { top: 0; transform: rotate(180deg) }
+  }
+  &.on-scroll { > div { top: -50px } }
 }
