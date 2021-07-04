@@ -17,8 +17,8 @@ export class SongComponent {
     console.log('Fetching download...');
   };
 
-  setFav() {
-    console.log('Fetching fav...');
+  addToPackage() {
+    console.log('Adding to current package...');
   };
 
 };
