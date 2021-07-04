@@ -1,10 +1,9 @@
 @import '../../../../shared/sass/variables';
 @import '../../../../shared/sass/utils';
 
-.song {
+:host {
   display: flex;
   width: calc(100% - 20px);
-  margin: 0 auto .5em auto;
   background-color: white;
   border-radius: $radiusBase;
   max-height: 70px;

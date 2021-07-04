@@ -13,11 +13,14 @@
       (input)="onSongChange()"
     />
   </div>
-  <div class="results">
+  <div class="results" [ngClass]="{ 'no-results': !songs.length }">
     <p *ngIf="!songs.length">Results will appear here</p>
-    <div class="songs-list" *ngIf="songs.length">
-      <song *ngFor="let song of songs" [data]="song"></song>
-    </div>
+    <ng-container *ngIf="songs.length">
+      <song
+        style="margin: 10px"
+        *ngFor="let song of songs"
+        [data]="song"></song>
+    </ng-container>
   </div>
 </div>
 <div class="not-found-action">
@@ -25,6 +28,6 @@
   <a href="">Let's create that one!</a> <!-- Change -->
 </div>
 <ng-lottie  
-  [ngClass]="{ 'to-top-lottie': songs }"
+  [ngClass]="{ 'to-top-lottie': songs.length }"
   [options]="lottieOptions"
   height="50px"></ng-lottie>
