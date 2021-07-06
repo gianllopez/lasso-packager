@@ -25,7 +25,7 @@ a { color: $lightBlue }
 
 .waves-lottie {
   > div {  
-    position: fixed;
+    position: fixed; z-index: -1;
     top: calc(100% - 50px); bottom: 0;
     display: flex;
     align-items: flex-end;  
