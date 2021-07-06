@@ -30,7 +30,7 @@ a { color: $lightBlue }
     display: flex;
     align-items: flex-end;  
     svg { @media (max-width: 595px) { height: auto !important } }  
-    transition-duration: .5s;
+    transition-duration: .25s;
   }
   &.top-lottie {
     > div { top: 0; transform: rotate(180deg) }

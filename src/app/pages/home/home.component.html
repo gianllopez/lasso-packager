@@ -16,6 +16,7 @@
   <div class="results" (window:scroll)="lottieOnScroll()"
     [ngClass]="{ 'no-results': !songs.length }">
     <ng-lottie
+      class="loader-lottie"
       [options]="loaderLottie"
       height="75px"
       *ngIf="loading; else resultsContainer"></ng-lottie>
