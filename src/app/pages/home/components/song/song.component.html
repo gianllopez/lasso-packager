@@ -8,21 +8,21 @@
     <p>{{ data.album }}</p>
   </div>
   <div class="actions">
-    <img class="download"
-      (click)="setDownload()"
-      [src]="getIcon('download')" alt=""
-      iconName="download"
+    <img class="add" alt=""
+      (click)="addToPackage()" 
+      src="./assets/icons/actions/add.svg"
+      iconName="add"
     />
-    <img class="spotify"
-      [src]="getIcon('spotify')" alt=""
+    <img class="spotify" alt=""
+      src="./assets/icons/actions/spotify.svg"
       iconName="spotify"
     />
-    <img class="deezer"
-      [src]="getIcon('deezer')" alt=""
+    <img class="deezer" alt=""
+      src="./assets/icons/actions/deezer.svg"
       iconName="deezer"
     />
-    <img class="youtube"
-      [src]="getIcon('youtube')" alt=""
+    <img class="youtube" alt=""
+      src="./assets/icons/actions/youtube.svg"
       iconName="youtube"
     />
   </div>

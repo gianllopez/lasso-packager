@@ -9,16 +9,8 @@ export class SongComponent {
 
   @Input() data!: Song;
 
-  formatTitle = () => this.data?.title.replace(' ', '-').toLowerCase();
-
-  getIcon = (icon: string) => `../../../../../assets/icons/actions/${icon}.svg`;
-
-  setDownload() {
-    console.log('Fetching download...');
-  };
-
   addToPackage() {
-    console.log('Adding to current package...');
+    console.log('Adding to current JSON package...');
   };
 
 };
