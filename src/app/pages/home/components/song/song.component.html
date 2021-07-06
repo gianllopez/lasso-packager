@@ -1,32 +1,29 @@
-<div class="song" [attr.data-title]="data.title">
-  <figure>
-    <img [src]="data.cover" alt="">
-  </figure>
-  <div>
-    <div class="song-tags">
-      <p>{{ data.title }}</p>
-      <p>{{ data.artist }}</p>
-      <p>{{ data.album }}</p>
-    </div>
-    <div class="actions">
-      <img class="download"
-        (click)="setDownload()"
-        [src]="getIcon('download')" alt=""
-        iconName="download"
-      />
-      <img class="fav"
-        (click)="setFav()"
-        [src]="getIcon('fav')" alt=""
-        iconName="fav"
-      />
-      <img class="spotify"
-        [src]="getIcon('spotify')" alt=""
-        iconName="spotify"
-      />
-      <img class="deezer"
-        [src]="getIcon('deezer')" alt=""
-        iconName="deezer"
-      />
-    </div>
+<figure>
+  <img [src]="data.cover" alt="">
+</figure>
+<div>
+  <div class="song-tags">
+    <p>{{ data.title }}</p>
+    <p>{{ data.artist }}</p>
+    <p>{{ data.album }}</p>
+  </div>
+  <div class="actions">
+    <img class="download"
+      (click)="setDownload()"
+      [src]="getIcon('download')" alt=""
+      iconName="download"
+    />
+    <img class="spotify"
+      [src]="getIcon('spotify')" alt=""
+      iconName="spotify"
+    />
+    <img class="deezer"
+      [src]="getIcon('deezer')" alt=""
+      iconName="deezer"
+    />
+    <img class="youtube"
+      [src]="getIcon('youtube')" alt=""
+      iconName="youtube"
+    />
   </div>
 </div>

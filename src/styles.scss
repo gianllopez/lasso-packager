@@ -8,18 +8,32 @@
   margin: 0; padding: 0;
 }
 
-body { overflow-x: hidden } // to hide the horizontal scroll bar
+body {
+  overflow: hidden scroll;
+  &::-webkit-scrollbar {
+    background-color: $lightGray;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-button { display: none }
+  &::-webkit-scrollbar-thumb {
+    background-color: $lightBlue;
+    border-radius: 10px;
+  }
+}
 
 a { color: $lightBlue }
 
-ng-lottie {
+.waves-lottie {
   > div {  
     position: fixed;
     top: calc(100% - 50px); bottom: 0;
     display: flex;
     align-items: flex-end;  
     svg { @media (max-width: 595px) { height: auto !important } }  
-    transition-duration: .25s;
+    transition-duration: .5s;
   }
-  &.to-top-lottie { transform: translateY(100%) }
+  &.top-lottie {
+    > div { top: 0; transform: rotate(180deg) }
+  }
+  &.on-scroll { > div { top: -50px } }
 }

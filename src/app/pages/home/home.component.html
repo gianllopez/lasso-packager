@@ -13,11 +13,21 @@
       (input)="onSongChange()"
     />
   </div>
-  <div class="results">
-    <p *ngIf="!songs.length">Results will appear here</p>
-    <div class="songs-list" *ngIf="songs.length">
-      <song *ngFor="let song of songs" [data]="song"></song>
-    </div>
+  <div class="results" (window:scroll)="lottieOnScroll()"
+    [ngClass]="{ 'no-results': !songs.length }">
+    <ng-lottie
+      [options]="loaderLottie"
+      height="75px"
+      *ngIf="loading; else resultsContainer"></ng-lottie>
+    <ng-template #resultsContainer>
+      <p *ngIf="!songs.length">Results will appear here</p>
+      <ng-container *ngIf="songs.length">
+        <song
+          style="margin: 10px"
+          *ngFor="let song of songs"
+          [data]="song"></song>
+      </ng-container>
+    </ng-template>
   </div>
 </div>
 <div class="not-found-action">
@@ -25,6 +35,7 @@
   <a href="">Let's create that one!</a> <!-- Change -->
 </div>
 <ng-lottie  
-  [ngClass]="{ 'to-top-lottie': songs }"
-  [options]="lottieOptions"
+  class="waves-lottie"
+  [ngClass]="{ 'top-lottie': songs.length, 'on-scroll': hideLottie }"
+  [options]="wavesLottie"
   height="50px"></ng-lottie>
