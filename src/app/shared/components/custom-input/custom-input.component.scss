@@ -1,10 +1,45 @@
 @import '../../sass/variables';
 
-input {
-  width: calc(100% - 20px);
-  background-color: $lightGray;
-  border: none;
-  padding: 12.5px 10px;
-  border-radius: 5px;
-  outline: none;
+.custom-input {
+  position: relative;
+  input {
+    background-color: $lightGray;
+    padding: 12.5px 10px;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    transition-duration: .25s;
+    &:focus-within {
+      padding-top: 25px;
+      & + label {
+        top: 15px;
+        & + .info { opacity: 0 }
+      }
+    }
+  }
+  label {
+    position: absolute;
+    top: 50%; left: 0;
+    transform: translateY(-50%);    
+    padding-left: 10px;
+    font-size: .9em;
+    color: $darkGray;
+    pointer-events: none;
+  }
+  .info {
+    position: absolute;
+    top: 50%; right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; height: 25px;
+    transform: translateY(-50%);
+    background-color: lighten($midGray, 7.5%);
+    border-radius: 50%;
+    font-size: .85em;
+    font-weight: bold;
+    transition-duration: .35s;
+    cursor: pointer;
+  }
 }
