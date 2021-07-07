@@ -3,8 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { waveLottie: 'blue-waves.json'} },
-  { path: 'create',
+  { path: '', component: HomeComponent },
+  { path: 'create',    
     loadChildren: () =>
       import('./pages/create/create.module').then(m => m.CreateModule) }
 ];

@@ -39,6 +39,6 @@ export class HomeComponent implements OnDestroy, DoCheck {
 
   lottieOnScroll() { this.hideLottie = window.scrollY > 0 };
 
-  ngOnDestroy() { this.results.unsubscribe() };
+  ngOnDestroy() { this.results?.unsubscribe() };
 
 };

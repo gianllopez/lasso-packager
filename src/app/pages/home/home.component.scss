@@ -1,8 +1,7 @@
 @import '../../shared/sass/variables';
 
-:host {
+.home-page {  
   .presentation {
-    margin-top: 1.5em;
     text-align: center;
     font-size: 1.3em;
     p { font-weight: bold; color: $darkGray }
@@ -57,4 +56,8 @@
     align-items: center;
     margin-bottom: 1.5em;
   }  
+  &.nodata-pos {
+    position: absolute; width: 100%;
+    top: 50%; transform: translateY(-50%);
+  }
 }

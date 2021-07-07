@@ -1,40 +1,44 @@
-<div class="presentation">
-  <h1>Lasso</h1>
-  <p>A music downloader</p>
-</div>
-<div class="query-interaction">
-  <div class="search-input">
-    <span class="iconify" data-icon="bx:bx-search-alt"></span>
-    <input
-      type="text"
-      placeholder="What song are you searching?"
-      spellcheck="false"
-      [(ngModel)]="song"
-      (input)="onSongChange()"
-    />
+<div class="home-page" [ngClass]="{ 'nodata-pos': !songs.length }">
+  <div class="presentation">
+    <h1>Lasso</h1>
+    <p>A music downloader</p>
   </div>
-  <div class="results" (window:scroll)="lottieOnScroll()"
-    [ngClass]="{ 'no-results': !songs.length }">
-    <ng-lottie
-      class="loader-lottie"
-      [options]="loaderLottie"
-      height="75px"
-      *ngIf="loading; else resultsContainer"></ng-lottie>
-    <ng-template #resultsContainer>
-      <p *ngIf="!songs.length">Results will appear here</p>
-      <ng-container *ngIf="songs.length">
-        <song
-          style="margin: 10px"
-          *ngFor="let song of songs"
-          [data]="song"></song>
-      </ng-container>
-    </ng-template>
+  <div class="query-interaction">
+    <div class="search-input">
+      <span class="iconify" data-icon="bx:bx-search-alt"></span>
+      <input
+        type="text"
+        placeholder="What song are you searching?"
+        spellcheck="false"
+        [(ngModel)]="song"
+        (input)="onSongChange()"
+      />
+    </div>
+    <div class="results" (window:scroll)="lottieOnScroll()"
+      [ngClass]="{ 'no-results': !songs.length }">
+      <ng-lottie
+        class="loader-lottie"
+        [options]="loaderLottie"
+        height="75px"
+        *ngIf="loading; else resultsContainer"></ng-lottie>
+      <ng-template #resultsContainer>
+        <p *ngIf="!songs.length">Results will appear here</p>
+        <ng-container *ngIf="songs.length">
+          <song
+            style="margin: 10px"
+            *ngFor="let song of songs"
+            [data]="song"></song>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+  <div class="not-found-action">
+    Not found song?
+    <a href="">Let's create that one!</a> <!-- Change -->
   </div>
 </div>
-<div class="not-found-action">
-  Not found song?
-  <a href="">Let's create that one!</a> <!-- Change -->
-</div>
+
+
 <ng-lottie  
   class="waves-lottie"
   [ngClass]="{ 'top-lottie': songs.length, 'on-scroll': hideLottie }"

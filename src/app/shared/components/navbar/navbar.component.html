@@ -1,17 +1,27 @@
+<div id="burger-menu" (click)="setOpen()" [ngClass]="{'opened': open}">
+  <div class="line" id="l1"></div>
+  <div class="line" id="l2"></div>
+  <div class="line" id="l3"></div>
+</div>
 <div id="nav-links">
-  <a href="">
+  <a routerLink="/" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    (click)="open = false">
     <i class="uil uil-estate"></i>
     <p>Home</p>
   </a>
-  <a href="">
+  <a routerLink="/create/url"
+    routerLinkActive="active" (click)="open = false">
     <i class="uil uil-file-plus-alt"></i>
-    <p>Create</p>
+    <p>Create song</p>
   </a>
-  <a href="">
+  <a routerLink="/package"
+    routerLinkActive="active" (click)="open = false">
     <i class="uil uil-box"></i>
     <p>Current package</p>
   </a>
-  <a href="">
+  <a routerLink="/about"
+    routerLinkActive="active" (click)="open = false">
     <i class="uil uil-comment-info"></i>
     <p>About me</p>
   </a>
