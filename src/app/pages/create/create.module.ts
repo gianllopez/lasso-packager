@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CreateRoutingModule } from './create-routing.module';
-import { UrlComponent } from './url/url.component';
+import { MainFormComponent } from './main-form/main-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CoverComponent } from './cover/cover.component';
-import { TagsComponent } from './tags/tags.component';
+
 
 @NgModule({
   declarations: [
-    UrlComponent,
-    CoverComponent,
-    TagsComponent
+    MainFormComponent
   ],
   imports: [
     CommonModule,
@@ -18,4 +16,4 @@ import { TagsComponent } from './tags/tags.component';
     SharedModule
   ]
 })
-export class CreateModule {};
+export class CreateModule { }

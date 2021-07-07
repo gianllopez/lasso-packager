@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 export class CustomInputComponent {
 
   @Input() placeholder!: string;
+  @Input() info!: string;
 
 };

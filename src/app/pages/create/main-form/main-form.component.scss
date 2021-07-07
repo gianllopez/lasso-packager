@@ -1,0 +1,22 @@
+@import '../../../shared/sass/variables';
+
+.main-form {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%; max-width: 450px;
+  transform: translate(-50%, -50%);  
+  > *:not(a) { margin: 1em }
+  .presentation {
+    text-align: center;
+    p { color: $darkGray }
+  }
+  .entries {
+    custom-input { display: block; margin-bottom: 10px }  
+  }
+  .buttons {
+    display: flex;
+    action-button:first-of-type { width: 15%; margin-right: 5px }
+    action-button { width: 85% }
+  }
+  a { display: block; text-align: center }
+}
