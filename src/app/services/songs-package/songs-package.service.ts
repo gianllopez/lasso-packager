@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Song } from 'src/app/shared/shared.models';
+import { PackagedSong, Song } from 'src/app/shared/shared.models';
 
 @Injectable({ providedIn: 'root' })
 export class SongsPackageService {
 
-  getPackage() {
+  getPackage(): PackagedSong[] | [] {
     let storage = localStorage.getItem('PACKAGE');
-    return JSON.parse(storage || '{}');
+    return JSON.parse(storage || '[]');
   };
 
-  wasntAdded(song: Song): boolean {
-    let data = Object.values(this.getPackage()) as Song[];    
-    return data.every(item => item.cover !== song.cover);
+  notAddedYet(song: Song): boolean {
+    let data: PackagedSong[] = this.getPackage();
+    return data.every(item => {
+      let itemData: Song = Object.values(item)[0];
+      return itemData.cover !== song.cover;
+    });
   };
 
   addSong(song: Song) {
-    if (this.wasntAdded(song)) {
-      let hash = Math.random().toString(36).substr(2, 5),
-      newItems = { ...this.getPackage(), [hash]: song };
-      localStorage.setItem('PACKAGE', JSON.stringify(newItems));      
+    let pkg: PackagedSong[] = this.getPackage();
+    if (this.notAddedYet(song)) {
+      let hash: string = Math.random().toString(36).substr(2, 5);      
+      pkg.push({ [hash]: song });
+      localStorage.setItem('PACKAGE', JSON.stringify(pkg));      
     };
   };
 
