@@ -2,6 +2,7 @@ import { Component, OnDestroy, DoCheck } from '@angular/core';
 import { AnimationOptions as AnimConfig } from 'ngx-lottie';
 import {  Subscription } from 'rxjs';
 import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
+import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
 import { Song } from 'src/app/shared/shared.models';
 
 @Component({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   hideLottie = false;
   loading = false;
 
-  constructor(private fetcher: FetcherService) {};
+  constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
 
   onSongChange(): void {
     if (this.song) {
@@ -28,6 +29,10 @@ export class HomeComponent implements OnDestroy, DoCheck {
       let song$ = this.fetcher.getSong(this.song);
       this.results = song$.subscribe(data => this.songs = data);
     };    
+  };
+
+  addHandler(song: Song): void {
+    this.songsPackage.addSong(song);
   };
 
   ngDoCheck(): void {

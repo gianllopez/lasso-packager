@@ -27,6 +27,7 @@
           <song
             style="margin: 10px"
             *ngFor="let song of songs"
+            (onAdd)="addHandler($event)"
             [data]="song"></song>
         </ng-container>
       </ng-template>
@@ -37,8 +38,6 @@
     <a href="">Let's create that one!</a> <!-- Change -->
   </div>
 </div>
-
-
 <ng-lottie  
   class="waves-lottie"
   [ngClass]="{ 'top-lottie': songs.length, 'on-scroll': hideLottie }"

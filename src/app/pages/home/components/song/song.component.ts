@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Song } from 'src/app/shared/shared.models';
 
 @Component({
@@ -8,9 +8,10 @@ import { Song } from 'src/app/shared/shared.models';
 export class SongComponent {
 
   @Input() data!: Song;
+  @Output() onAdd = new EventEmitter<Song>();
 
   addToPackage() {
-    console.log('Adding to current JSON package...');
+    this.onAdd.emit(this.data);
   };
 
 };
