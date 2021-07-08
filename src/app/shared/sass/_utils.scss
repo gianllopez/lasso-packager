@@ -3,3 +3,10 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@mixin centered-abs-form {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%; max-width: 450px;
+  transform: translate(-50%, -50%);
+}
