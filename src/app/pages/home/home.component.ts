@@ -21,6 +21,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   hideLottie = false;
   showSTbutton = false;
   loading = false;
+  added = false;
 
   constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
 
@@ -34,6 +35,8 @@ export class HomeComponent implements OnDestroy, DoCheck {
 
   addHandler(song: Song): void {
     this.songsPackage.addSong(song);
+    this.added = true;
+    setTimeout(() => this.added = false, 700);
   };
 
   ngDoCheck(): void {

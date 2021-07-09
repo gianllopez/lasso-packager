@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SongComponent } from './components/song/song.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { IconNameDirective } from './directives/icon-name.directive';
+import { SlideMessageComponent } from './components/slide-message/slide-message.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { IconNameDirective } from './directives/icon-name.directive';
     SongComponent,
     CustomInputComponent,
     ActionButtonComponent,
-    IconNameDirective
+    IconNameDirective,
+    SlideMessageComponent
   ],
   imports: [ CommonModule, RouterModule ],
   exports: [
@@ -21,6 +23,7 @@ import { IconNameDirective } from './directives/icon-name.directive';
     SongComponent,
     CustomInputComponent,
     ActionButtonComponent,
-    IconNameDirective
+    IconNameDirective,    
+    SlideMessageComponent
   ]})
 export class SharedModule {};
