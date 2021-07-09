@@ -1,14 +1,12 @@
-@import '../../../../shared/sass/variables';
+@import '../../sass/variables';
 
 :host {
   display: flex;
-  width: calc(100% - 20px);
   background-color: white;
   border-radius: $radiusBase;
   max-height: 70px;
   figure, > div { display: flex; align-items: center }
-  figure {    
-    // width: 18.5%;
+  figure {
     min-width: 50px;
     margin: min(2%, 10px);
     img {
@@ -43,6 +41,10 @@
         width: min(6vw, 25px);
         margin-right: 7px;
         &.download { width: min(5vw, 20px) }
+      }
+      .del-action {
+        transition-duration: .25s;
+        &:hover { color: $passionRed }
       }
     }
   }

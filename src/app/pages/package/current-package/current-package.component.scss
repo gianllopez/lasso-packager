@@ -1,5 +1,12 @@
 @import '../../create/create.styles.scss';
+@import '../../../shared/sass/variables';
 
 :host {
   @include center-form;
+  .package {
+    margin: 10px;
+    overflow: auto;
+    background-color: $lightGray;
+    border-radius: 10px;
+  }
 }
