@@ -8,13 +8,13 @@ import { Song } from 'src/app/shared/shared.models';
 export class SongComponent {
 
   @Input() data!: Song;
-  @Input() packagedID!: string;
+  @Input() index!: number;
 
   @Output() onAdd = new EventEmitter<Song>();
-  @Output() onDelete = new EventEmitter();
+  @Output() onDelete = new EventEmitter<number>();
 
   addToPackage() { this.onAdd.emit(this.data) };
 
-  deleteFromPackage() { this.onDelete.emit(this.packagedID) }; 
+  deleteFromPackage() { this.onDelete.emit(this.index) }; 
 
 };

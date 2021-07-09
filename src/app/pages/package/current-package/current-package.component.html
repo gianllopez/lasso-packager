@@ -3,8 +3,8 @@
   <p>You’ve added the following songs</p>
   <div class="package">
     <song *ngFor="let song of pkg"
-      [data]="parseData(song)"
-      [packagedID]="parseHash(song)"
+      [data]="song"
+      [index]="pkg.indexOf(song)"
       (onDelete)="deleteHandler($event)"
       style="margin: 10px">
     </song>

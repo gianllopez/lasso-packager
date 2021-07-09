@@ -7,5 +7,3 @@ export interface Song {
   duration: string;
   explicit: boolean;
 };
-
-export interface PackagedSong { [hash: string]: Song };

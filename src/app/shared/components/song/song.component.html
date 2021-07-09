@@ -10,7 +10,7 @@
   <div class="actions">
     <i class="uil uil-trash-alt del-action"
       style="font-size: 1.6em"
-      *ngIf="packagedID; else actions"
+      *ngIf="index || index === 0; else actions"
       (click)="deleteFromPackage()"></i>
     <ng-template #actions>
       <img class="add" alt=""
