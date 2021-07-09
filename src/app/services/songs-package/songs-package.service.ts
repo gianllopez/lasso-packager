@@ -19,14 +19,16 @@ export class SongsPackageService {
   };
 
   addSong(song: Song) {
-    let pkg: Song[] = this.getPackage;
+    let pkg = this.getPackage;
     if (this.notAdded(song)) {
       pkg.push(song); this.setPackage(pkg);
     };
   };
 
   deleteSong(index: number) {
-    console.log(index)
+    let pkg = this.getPackage,
+    newPackage = pkg.filter(song => pkg.indexOf(song) !== index);
+    this.setPackage(newPackage);
   };
 
 };
