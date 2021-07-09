@@ -1,8 +1,8 @@
 @import '../../../shared/sass/variables';
-@import '../../../shared/sass/utils';
+@import '../create.styles.scss';
 
-.main-form {
-  @include centered-abs-form;
+:host {
+  @include center-form;
   > *:not(a) { margin: 1em }
   .presentation {
     text-align: center;

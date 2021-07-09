@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-main-form',
+  selector: 'main-form',
   templateUrl: './main-form.component.html',
-  styleUrls: ['./main-form.component.scss']
-})
+  styleUrls: ['./main-form.component.scss', '../create.styles.scss'],
+  host: { class: 'center-form' }})
 export class MainFormComponent {
   
   // Let the indent like this, it's not a dev error, it's a JS error.

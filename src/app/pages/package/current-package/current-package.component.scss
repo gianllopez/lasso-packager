@@ -1,0 +1,5 @@
+@import '../../create/create.styles.scss';
+
+:host {
+  @include center-form;
+}

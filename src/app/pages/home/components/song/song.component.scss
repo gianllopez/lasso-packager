@@ -1,5 +1,4 @@
 @import '../../../../shared/sass/variables';
-@import '../../../../shared/sass/utils';
 
 :host {
   display: flex;
@@ -22,7 +21,9 @@
     font-size: min(4vw, 15px);
     text-align: left;
     overflow: scroll; // for long tags overflow
-    @include hide-scrollbar;
+    &::-webkit-scrollbar { display: none }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     .song-tags {
       p {
         white-space: nowrap;

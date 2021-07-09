@@ -1,0 +1,19 @@
+@import '../../shared/sass/variables';
+
+.btns-group {
+  display: flex;
+  action-button:first-of-type { width: 15%; margin-right: 10px }
+  action-button { width: 85% }
+}
+
+@mixin center-form {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%; max-width: 450px;
+  transform: translate(-50%, -50%);
+}
+
+.presentation {
+  text-align: center;
+  p { color: $darkGray }
+}

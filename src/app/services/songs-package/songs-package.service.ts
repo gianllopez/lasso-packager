@@ -4,7 +4,7 @@ import { PackagedSong, Song } from 'src/app/shared/shared.models';
 @Injectable({ providedIn: 'root' })
 export class SongsPackageService {
 
-  getPackage(): PackagedSong[] | [] {
+  getPackage(): PackagedSong[] {
     let storage = localStorage.getItem('PACKAGE');
     return JSON.parse(storage || '[]');
   };

@@ -1,9 +1,8 @@
-@import '../../../shared/sass/utils';
+@import '../../../shared/sass/variables';
+@import '../create.styles.scss';
 
-:host {
-  @include centered-abs-form;
-  width: 90%;
-  .presentation { @include default-presentation }
+:host { width: 90%;
+  @include center-form;
   .cover-place {
     display: flex;
     align-items: center;
