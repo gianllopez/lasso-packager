@@ -21,7 +21,11 @@ body {
   }
 }
 
-a { color: $lightBlue }
+a {
+  display: block;
+  color: $lightBlue;
+  text-align: center;
+}
 
 .waves-lottie {
   > div {  

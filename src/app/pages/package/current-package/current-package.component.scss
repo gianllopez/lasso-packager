@@ -7,6 +7,14 @@
     margin: 10px;
     overflow: auto;
     background-color: $lightGray;
-    border-radius: 10px;
+    border-radius: 10px;    
+  }
+  .empty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+    p { margin-bottom: 7px; color: $darkGray }    
   }
 }

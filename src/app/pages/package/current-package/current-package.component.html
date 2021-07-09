@@ -1,13 +1,18 @@
 <div class="presentation">
   <h2>Your package</h2>
   <p>You’ve added the following songs</p>
-  <div class="package">
+</div>
+<div class="package" [ngClass]="{'empty': !pkg.length}">
+  <ng-container *ngIf="pkg.length; else emptyPackage">
     <song *ngFor="let song of pkg"
       [data]="song"
       [index]="pkg.indexOf(song)"
       (onDelete)="deleteHandler($event)"
       style="margin: 10px">
     </song>
-  </div>
-  <a href="">How does the songs package work?</a>
+  </ng-container>
+  <ng-template #emptyPackage>
+    <p>Empty package</p>
+  </ng-template>
 </div>
+<a href="">How does the songs package work?</a>
