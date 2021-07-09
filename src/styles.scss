@@ -37,3 +37,9 @@ a { color: $lightBlue }
   }
   &.on-scroll { > div { top: -50px } }
 }
+
+.buttons-group {
+  display: flex;
+  action-button:first-of-type { width: 15%; margin-right: 10px }
+  action-button { width: 85% }
+}

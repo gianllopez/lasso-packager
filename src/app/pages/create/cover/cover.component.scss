@@ -1,0 +1,42 @@
+@import '../../../shared/sass/utils';
+
+:host {
+  @include centered-abs-form;
+  width: 90%;
+  .presentation { @include default-presentation }
+  .cover-place {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: $lightGray;
+    border-radius: 5px;
+    margin: 15px auto 10px auto;
+    p {
+      font-size: 1.35em;
+      font-weight: bold;
+      color: $darkGray
+    }
+  }
+  .cover-input {
+    position: relative;
+    display: flex;
+    input, button { border: none; border-radius: 3px }
+    input {
+      flex: 1; padding: 1em 0 1em 1em;
+      background-color: $lightGray;
+      font-size: .9em;
+      outline: none;
+    }
+    button {
+      position: absolute;
+      bottom: 50%; right: 5px;
+      height: 80%;
+      transform: translateY(50%);
+      padding: 0 2em;
+      background-color: $darkGray;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
