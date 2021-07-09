@@ -8,16 +8,19 @@ import { Song } from 'src/app/shared/shared.models';
   styleUrls: ['./current-package.component.scss']})
 export class CurrentPackageComponent implements OnInit {
 
-  pkg!: Song[];  
+  pkg!: Song[];
 
   constructor(private songsPackageService: SongsPackageService) {};
 
-  ngOnInit(): void {
+  showPackage(): void {
     this.pkg = this.songsPackageService.getPackage;
   };
 
+  ngOnInit(): void { this.showPackage() };
+
   deleteHandler(index: number) {
     this.songsPackageService.deleteSong(index);
+    this.showPackage();
   };
 
 };

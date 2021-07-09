@@ -10,7 +10,7 @@
     min-width: 50px;
     margin: min(2%, 10px);
     img {
-      width: auto; max-height: 55px;
+      width: auto; height: 55px;
       border-radius: 6px;
     }
   }
@@ -38,7 +38,7 @@
       margin: 0 min(4%, 15px) 0 5px;
       display: flex; // for long tags overflow
       img {
-        width: min(6vw, 25px);
+        width: min(6vw, 25px);        
         margin-right: 7px;
         &.download { width: min(5vw, 20px) }
       }

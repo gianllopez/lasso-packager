@@ -14,7 +14,7 @@
         (input)="onSongChange()"
       />
     </div>
-    <div class="results" (window:scroll)="lottieOnScroll()"
+    <div class="results" (window:scroll)="onScroll()"
       [ngClass]="{ 'no-results': !songs.length }">
       <ng-lottie
         class="loader-lottie"
@@ -43,3 +43,6 @@
   [ngClass]="{ 'top-lottie': songs.length, 'on-scroll': hideLottie }"
   [options]="wavesLottie"
   height="50px"></ng-lottie>
+<i class="scroll-top-btn uil uil-angle-double-up"
+  [ngClass]="{ 'show-btn': showSTbutton }"
+  (click)="toTop()"></i>

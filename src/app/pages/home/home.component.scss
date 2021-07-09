@@ -55,9 +55,25 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 1.5em;
-  }  
+  }
   &.nodata-pos {
     position: absolute; width: 100%;
     top: 50%; transform: translateY(-50%);
   }
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 15px; right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; height: 50px;
+  font-size: 2.75em;
+  background-color: $lightBlue;
+  border-radius: 50%;
+  color: $lightGray;
+  transition-duration: .25s;
+  opacity: 0;
+  &.show-btn { opacity: 1 }
 }

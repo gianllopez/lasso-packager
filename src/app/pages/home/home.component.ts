@@ -19,6 +19,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   results!: Subscription;
 
   hideLottie = false;
+  showSTbutton = false;
   loading = false;
 
   constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
@@ -42,7 +43,12 @@ export class HomeComponent implements OnDestroy, DoCheck {
     };
   };
 
-  lottieOnScroll() { this.hideLottie = window.scrollY > 0 };
+  onScroll(): void {
+    this.hideLottie = window.scrollY > 0;
+    this.showSTbutton = window.scrollY > 400;
+  };
+
+  toTop(): void { window.scrollTo({ top: 0, behavior: 'smooth' }) }
 
   ngOnDestroy() { this.results?.unsubscribe() };
 
