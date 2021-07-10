@@ -22,6 +22,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   showSTbutton = false;
   loading = false;
   added = false;
+  slideMessage!: string;
 
   constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
 
@@ -34,7 +35,8 @@ export class HomeComponent implements OnDestroy, DoCheck {
   };
 
   addHandler(song: Song): void {
-    this.songsPackage.addSong(song);
+    let notAddedYet = this.songsPackage.addSong(song);
+    this.slideMessage = notAddedYet ? 'Succesfully added song!' : 'Already added song!';
     this.added = true;
     setTimeout(() => this.added = false, 700);
   };

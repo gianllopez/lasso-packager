@@ -1,12 +1,11 @@
 @import '../../sass/variables';
 .slide-message {
-  position: fixed;  
-  text-align: center;
-  top: -55px; right: 50%;
+  position: fixed; right: 50%;
   display: flex;
   align-items: center;
   max-width: 300px;
   transform: translateX(50%);
+  text-align: center;
   border-radius: 10px;
   height: 55px;
   padding: 0 15px;

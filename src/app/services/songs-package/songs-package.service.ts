@@ -13,16 +13,18 @@ export class SongsPackageService {
     localStorage.setItem('PACKAGE', JSON.stringify(newpkg));
   };
 
-  notAdded(song: Song): boolean {
+  notAddedYet(song: Song): boolean {
     let data: Song[] = this.getPackage;
     return data.every(item => item.cover !== song.cover);
   };
 
   addSong(song: Song) {
-    let pkg = this.getPackage;
-    if (this.notAdded(song)) {
+    let pkg = this.getPackage,
+    wasntAdded = this.notAddedYet(song);
+    if (wasntAdded) {
       pkg.push(song); this.setPackage(pkg);
     };
+    return wasntAdded;
   };
 
   deleteSong(index: number) {

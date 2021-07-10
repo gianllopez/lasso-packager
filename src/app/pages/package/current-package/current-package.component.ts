@@ -9,6 +9,7 @@ import { Song } from 'src/app/shared/shared.models';
 export class CurrentPackageComponent implements OnInit {
 
   pkg!: Song[];
+  deleting = false;
 
   constructor(private songsPackageService: SongsPackageService) {};
 
@@ -21,6 +22,8 @@ export class CurrentPackageComponent implements OnInit {
   deleteHandler(index: number) {
     this.songsPackageService.deleteSong(index);
     this.showPackage();
+    this.deleting = true;
+    setTimeout(() => this.deleting = false, 750);
   };
 
 };
