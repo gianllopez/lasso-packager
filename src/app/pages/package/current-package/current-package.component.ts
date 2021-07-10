@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
 import { Song } from 'src/app/shared/shared.models';
 

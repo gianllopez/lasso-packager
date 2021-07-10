@@ -6,7 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./slide-message.component.scss']})
 export class SlideMessageComponent {
 
-  @Input() show!: boolean;
+  @Input() display!: boolean;
   @Input() message!: string;
+  @Input() danger!: boolean;
 
 };

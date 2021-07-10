@@ -2,7 +2,6 @@
 @import '../../../shared/sass/variables';
 
 :host {
-  @include center-form;
   .package {
     margin: 10px;
     overflow: auto;
@@ -17,4 +16,5 @@
     height: 250px;
     p { margin-bottom: 7px; color: $darkGray }    
   }
+  @media (min-width: 500px) { @include center-form }
 }
