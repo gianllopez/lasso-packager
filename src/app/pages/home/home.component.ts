@@ -3,7 +3,7 @@ import { AnimationOptions as AnimConfig } from 'ngx-lottie';
 import {  Subscription } from 'rxjs';
 import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
-import { Song } from 'src/app/shared/shared.models';
+import { FilterOption, Song } from 'src/app/shared/shared.models';
 
 @Component({
   selector: 'home',
@@ -17,7 +17,13 @@ export class HomeComponent implements OnDestroy, DoCheck {
   song = '';
   songs: Song[] = [];
   results!: Subscription;
-
+  filters: FilterOption[] = [
+    { icon: 'assets/icons/filter/song.svg', option: 'song' },
+    { icon: 'assets/icons/filter/album.svg', option: 'album' },
+    { icon: 'assets/icons/filter/artist.svg', option: 'artist' }
+  ];
+  filterIndex = 0;
+  
   hideLottie = false;
   showSTbutton = false;
   loading = false;
@@ -39,6 +45,10 @@ export class HomeComponent implements OnDestroy, DoCheck {
     this.slideMessage = notAddedYet ? 'Succesfully added song!' : 'Already added song!';
     this.added = true;
     setTimeout(() => this.added = false, 700);
+  };
+
+  onFilterChange(): void {
+    this.filterIndex = this.filterIndex >= 2 ? 0 : this.filterIndex + 1;
   };
 
   ngDoCheck(): void {
