@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: 'package',
     loadChildren: () =>
       import('./pages/package/package.module').then(m => m.PackageModule) },
+  { path: 'help',
+    loadChildren: () =>
+      import('./pages/help/help.module').then(m => m.HelpModule) }
 ];
 
 @NgModule({
