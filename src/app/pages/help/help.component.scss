@@ -1,0 +1,14 @@
+@import '../../shared/sass/variables';
+
+:host {
+  .presentation {
+    text-align: center;
+    font-size: 1.3em;
+    p { font-weight: bold; color: $darkGray }
+  }
+  .hero {
+    padding: 0 2em;
+    figure img { width: 100% }
+    h3 { font-size: min(6vw, 30px); margin-top: 15px }
+  }
+}
