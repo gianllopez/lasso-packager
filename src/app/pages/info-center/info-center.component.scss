@@ -1,0 +1,22 @@
+@import '../../shared/sass/variables';
+
+.info-center {
+  .presentation {
+    text-align: center;
+    font-size: 1.3em;
+    p { font-weight: bold; color: $darkGray }
+  }
+  .hero {
+    margin: 10px 0; padding: 0 2em;
+    max-width: 375px;
+    figure img { width: 100% }
+    h3 {
+      font-size: min(5vw, 20px);
+      margin-top: 15px;
+      color: $darkGray;
+    }
+  }
+  .questions {
+    max-width: 450px;
+  }
+}

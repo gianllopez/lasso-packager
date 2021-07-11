@@ -12,7 +12,7 @@ const routes: Routes = [
       import('./pages/package/package.module').then(m => m.PackageModule) },
   { path: 'help',
     loadChildren: () =>
-      import('./pages/help/help.module').then(m => m.HelpModule) }
+      import('./pages/info-center/info-center.module').then(m => m.InfoCenterModule) }
 ];
 
 @NgModule({

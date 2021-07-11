@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { HelpComponent } from './help.component';
+import { InfoCenterComponent } from './info-center.component';
 import { RouterModule, Routes } from '@angular/router';
 import { QuestionComponent } from './question/question.component';
 
 const routes: Routes = [
-  { path: '', component: HelpComponent }
+  { path: '', component: InfoCenterComponent }
 ];
 
 @NgModule({
-  declarations: [ HelpComponent, QuestionComponent ],
+  declarations: [ InfoCenterComponent, QuestionComponent ],
   imports: [ RouterModule.forChild(routes) ]})
-export class HelpModule {};
+export class InfoCenterModule {};
