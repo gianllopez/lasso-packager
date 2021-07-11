@@ -5,12 +5,12 @@
   </div>
   <div class="query-interaction">
     <div class="search-input">
-      <figure class="filter" (click)="onFilterChange()">
-        <img [src]="filters[filterIndex].icon" alt="">
+      <figure class="filter">
+        <img src="assets/icons/music.svg" alt="">
       </figure>      
       <input
         type="text"
-        [placeholder]="'What ' + filters[filterIndex].option + ' are you searching?'"
+        placeholder="What song are you searching?"
         spellcheck="false"
         [(ngModel)]="song"
         (input)="onSongChange()"

@@ -7,8 +7,3 @@ export interface Song {
   duration: string;
   explicit: boolean;
 };
-
-export interface FilterOption {
-  option: string;
-  icon: string;
-};
