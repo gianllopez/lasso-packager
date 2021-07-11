@@ -7,5 +7,7 @@ import { Component, Input } from '@angular/core';
 export class ActionButtonComponent {
 
   @Input() goback!: boolean;
+  @Input() label!: string;
+  @Input() includeIcon = true;
   
 };
