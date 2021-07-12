@@ -12,14 +12,13 @@ const routes: Routes = [
       import('./pages/package/package.module').then(m => m.PackageModule) },
   { path: 'information',
     loadChildren: () =>
-      import('./pages/info-center/info-center.module').then(m => m.InfoCenterModule) }
+      import('./pages/info-center/info-center.module').then(m => m.InfoCenterModule) },
+  { path: 'download',
+    loadChildren: () =>
+      import('./pages/download-center/download-center.module').then(m => m.DownloadCenterModule) }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules
-    })
-  ],
+  imports: [ RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }) ],
   exports: [ RouterModule ]})
 export class AppRoutingModule {};
