@@ -1,6 +1,9 @@
 <div class="question-wrapper">
-  <h3 class="title">{{ title }}</h3>
-  <p class="answer">
+  <h3 class="title">
+    {{ title }}
+    <i class="uil uil-angle-down" [ngStyle]="{ transform: show ? 'rotate(-180deg)' : 'initial' }"></i>
+  </h3>
+  <p class="answer" [ngClass]="{ 'show': show }">
     <ng-content></ng-content>
   </p>
 </div>

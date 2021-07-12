@@ -8,7 +8,8 @@
       p { font-weight: bold; color: $darkGray }
     }
     .hero {
-      margin: 10px 0; padding: 0 2em;
+      margin: 10px auto; padding: 0 2em;
+      max-width: 350px;
       figure img { width: 100% }
       h3 {
         font-size: min(5vw, 20px);
@@ -34,4 +35,5 @@
       margin-left: auto;
     }
   }
+  a { display: inline }
 }

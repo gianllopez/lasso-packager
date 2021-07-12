@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'question',
@@ -7,5 +7,9 @@ import { Component, Input } from '@angular/core';
 export class QuestionComponent {
 
   @Input() title!: string;
+  show = false;
+  
+  @HostListener('click')
+  onClick(): void { this.show = !this.show };
 
 };
