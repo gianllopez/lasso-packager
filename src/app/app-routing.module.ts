@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'package',
     loadChildren: () =>
       import('./pages/package/package.module').then(m => m.PackageModule) },
-  { path: 'help',
+  { path: 'information',
     loadChildren: () =>
       import('./pages/info-center/info-center.module').then(m => m.InfoCenterModule) }
 ];
