@@ -6,7 +6,7 @@
 <div id="nav-links">
   <a routerLink="/" routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }"
-    (click)="open = false">
+    (click)="open = false">    
     <i class="uil uil-estate"></i>
     <p>Home</p>
   </a>
@@ -20,12 +20,12 @@
     <i class="uil uil-box"></i>
     <p>Current package</p>
   </a>
-  <a routerLink="/information"
+  <a routerLink="center/information"
     routerLinkActive="active" (click)="open = false">
     <i class="uil uil-comment-info"></i>
     <p>Information</p>
   </a>
-  <a routerLink="/download"
+  <a routerLink="center/download"
     routerLinkActive="active" (click)="open = false">
     <i class="uil uil-file-download-alt"></i>
     <p>Download</p>

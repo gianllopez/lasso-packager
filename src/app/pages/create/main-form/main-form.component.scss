@@ -2,7 +2,7 @@
 @import '../create.styles.scss';
 
 :host {
-  @include center-form;
+  @include center-page;
   > *:not(a) { margin: 1em }
   .presentation {
     text-align: center;

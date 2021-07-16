@@ -1,12 +1,6 @@
 @import '../../shared/sass/variables';
 
-.btns-group {
-  display: flex;
-  action-button:first-of-type { width: 15%; margin-right: 10px }
-  action-button { width: 85% }
-}
-
-@mixin center-form {
+@mixin center-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +9,8 @@
   margin: auto;
 }
 
-.presentation {
-  text-align: center;
-  p { color: $darkGray }
+.btns-group {
+  display: flex;
+  action-button:first-of-type { width: 15%; margin-right: 10px }
+  action-button { width: 85% }
 }

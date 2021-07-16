@@ -10,12 +10,9 @@ const routes: Routes = [
   { path: 'package',
     loadChildren: () =>
       import('./pages/package/package.module').then(m => m.PackageModule) },
-  { path: 'information',
+  { path: 'center',
     loadChildren: () =>
-      import('./pages/info-center/info-center.module').then(m => m.InfoCenterModule) },
-  { path: 'download',
-    loadChildren: () =>
-      import('./pages/download-center/download-center.module').then(m => m.DownloadCenterModule) }
+      import('./pages/centers/centers.module').then(m => m.CentersModule) }
 ];
 
 @NgModule({

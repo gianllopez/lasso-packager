@@ -2,7 +2,7 @@
 @import '../create.styles.scss';
 
 :host { width: 90%;
-  @include center-form;
+  @include center-page;
   .cover-place {
     display: flex;
     align-items: center;

@@ -1,6 +1,8 @@
-@import '../../shared/sass/variables';
+@import '../../../shared/sass/variables';
+@import '../centers.styles.scss';
 
 .info-center {
+  padding: 15% 0;
   .header {
     .presentation {
       text-align: center;
@@ -23,21 +25,9 @@
     justify-content: center;
   }
   @media (min-width: 768px) {
-    .header {
-      position: fixed; top: 0;
-      width: 50%; height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: white;
-      border-right: 5px solid $lightBlue;
-      max-width: 350px;
-      text-align: center;
-    }
-    .questions {
-      width: calc(100% - min(50%, 350px));
-      margin-left: auto;
-    }
+    padding: 0;    
+    .header { @include aside-section }
+    .questions { @include aside-section(false) }
   }
   a { display: inline }
 }

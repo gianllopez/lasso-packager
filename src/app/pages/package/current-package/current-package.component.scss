@@ -1,5 +1,5 @@
-@import '../../create/create.styles.scss';
 @import '../../../shared/sass/variables';
+@import '../../create/create.styles.scss';
 
 :host {
   .package {
@@ -16,5 +16,5 @@
     height: 250px;
     p { margin-bottom: 7px; color: $darkGray }    
   }
-  @media (min-width: 500px) { @include center-form }
+  @media (min-width: 500px) { @include center-page }
 }

@@ -49,12 +49,12 @@
     max-width: 350px;
     background-color: white;
     border-right: 5px solid #3d84b8;
-    transform: translateX(calc(-100% + 5px));
+    transform: translateX(calc(-100% + 4px));
     transition-duration: .25s;
     a {
       display: flex;
       align-items: center;
-      width: 75%; max-width: 225px;
+      width: 75%; max-width: 275px;
       font-size: 1.4em;
       padding: 0.65em;
       background-color: $lightGray;
