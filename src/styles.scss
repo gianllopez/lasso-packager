@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
 @import './app/shared/sass/variables';
+@import './app/shared/sass/utils';
 
 * {
   font-family: 'Fira Sans', cursive;
@@ -10,15 +11,7 @@
 
 body {
   overflow: hidden scroll;
-  &::-webkit-scrollbar {
-    background-color: $lightGray;
-    width: 5px;
-  }
-  &::-webkit-scrollbar-button { display: none }
-  &::-webkit-scrollbar-thumb {
-    background-color: $lightBlue;
-    border-radius: 10px;
-  }
+  @include custom-scrollbar;
 }
 
 a {

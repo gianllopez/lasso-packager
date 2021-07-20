@@ -40,10 +40,11 @@
       img {
         width: min(6vw, 25px);        
         margin-right: 7px;
+        cursor: pointer;
         &.download { width: min(5vw, 20px) }
       }
       .del-action {
-        transition-duration: .25s;
+        cursor: pointer;
         &:hover { color: $passionRed }
       }
     }

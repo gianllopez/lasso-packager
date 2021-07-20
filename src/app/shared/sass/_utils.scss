@@ -1,0 +1,11 @@
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    background-color: $lightGray;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-button { display: none }
+  &::-webkit-scrollbar-thumb {
+    background-color: $lightBlue;
+    border-radius: 10px;
+  }
+}

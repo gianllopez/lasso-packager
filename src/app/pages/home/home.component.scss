@@ -76,8 +76,9 @@
   font-size: 2.75em;
   background-color: $lightBlue;
   border-radius: 50%;
-  color: $lightGray;
+  color: white;
   transition-duration: .25s;
   opacity: 0;
+  cursor: pointer;
   &.show-btn { opacity: 1 }
 }

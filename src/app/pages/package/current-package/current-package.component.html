@@ -1,26 +1,28 @@
-<div class="presentation">
-  <h2>Your package</h2>
-  <p>You’ve added the following songs</p>
+<div class="current-package">
+  <div class="presentation">
+    <h2>Your package</h2>
+    <p>You’ve added the following songs</p>
+  </div>
+  <div class="package" [ngClass]="{'empty': !pkg.length}">
+    <ng-container *ngIf="pkg.length; else emptyPackage">
+      <song *ngFor="let song of pkg"
+        [data]="song"
+        [index]="pkg.indexOf(song)"
+        (onDelete)="deleteHandler($event)"
+        style="margin: 10px; border-radius: 6px">
+      </song>
+    </ng-container>
+    <ng-template #emptyPackage>
+      <p>Empty package</p>
+    </ng-template>
+  </div>
+  <action-button
+    style="width: calc(100% - 20px); margin: 0 auto 10px auto;"
+    [includeIcon]="false"
+    label="Download">
+  </action-button>
+  <a href="">How does the songs package work?</a>
 </div>
-<div class="package" [ngClass]="{'empty': !pkg.length}">
-  <ng-container *ngIf="pkg.length; else emptyPackage">
-    <song *ngFor="let song of pkg"
-      [data]="song"
-      [index]="pkg.indexOf(song)"
-      (onDelete)="deleteHandler($event)"
-      style="margin: 10px">
-    </song>
-  </ng-container>
-  <ng-template #emptyPackage>
-    <p>Empty package</p>
-  </ng-template>
-</div>
-<action-button
-  style="width: calc(100% - 20px); margin: 0 auto 10px auto;"
-  [includeIcon]="false"
-  label="Download">
-</action-button>
-<a href="">How does the songs package work?</a>
 <slide-message
   [danger]="true"
   class="rm-message"

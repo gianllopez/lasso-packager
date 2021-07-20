@@ -3,7 +3,7 @@
 
 :host {
   @include center-page;
-  > *:not(a) { margin: 1em }
+  > *:not(a) { margin: .5em 1em }
   .presentation {
     text-align: center;
     p { color: $darkGray }
@@ -11,5 +11,9 @@
   .entries {
     custom-input { display: block; margin-bottom: 10px }  
   }  
-  a { display: block; text-align: center }
+  a {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
 }
