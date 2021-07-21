@@ -13,17 +13,22 @@ export class PackageComponent implements OnInit {
 
   constructor(private songsPackageService: SongsPackageService) {};
 
-  showPackage(): void {
+  updatePackage(): void {
     this.pkg = this.songsPackageService.getPackage;
   };
 
-  ngOnInit(): void { this.showPackage() };
+  ngOnInit(): void { this.updatePackage() };
 
   deleteHandler(index: number) {
     this.songsPackageService.deleteSong(index);
-    this.showPackage();
+    this.updatePackage();
     this.deleting = true;
     setTimeout(() => this.deleting = false, 750);
+  };
+
+  clearPackage(): void {
+    this.songsPackageService.setPackage([]);
+    this.updatePackage();
   };
 
 };
