@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PackageRoutingModule } from './package-routing.module';
-import { CurrentPackageComponent } from './current-package/current-package.component';
+import { PackageComponent } from './package.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [ CurrentPackageComponent ],
+  declarations: [ PackageComponent ],
   imports: [
     CommonModule,
     PackageRoutingModule,

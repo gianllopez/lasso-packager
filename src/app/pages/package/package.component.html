@@ -1,9 +1,9 @@
-<div class="current-package">
+<div class="package">
   <div class="presentation">
     <h2>Your package</h2>
     <p>You’ve added the following songs</p>
   </div>
-  <div class="package" [ngClass]="{'empty': !pkg.length}">
+  <div class="package-list" [ngClass]="{'empty': !pkg.length}">
     <ng-container *ngIf="pkg.length; else emptyPackage">
       <song *ngFor="let song of pkg"
         [data]="song"
@@ -16,11 +16,16 @@
       <p>Empty package</p>
     </ng-template>
   </div>
-  <action-button
-    style="width: calc(100% - 20px); margin: 0 auto 10px auto;"
-    [includeIcon]="false"
-    label="Download">
-  </action-button>
+  <div class="btns-group">
+    <button class="delete-all">
+      Delete all
+      <i class="uil uil-trash-alt"></i>
+    </button>
+    <button class="download">
+      Download
+      <i class="uil uil-arrow-to-bottom"></i>
+    </button>
+  </div>
   <a href="">How does the songs package work?</a>
 </div>
 <slide-message

@@ -3,10 +3,10 @@ import { SongsPackageService } from 'src/app/services/songs-package/songs-packag
 import { Song } from 'src/app/shared/shared.models';
 
 @Component({
-  selector: 'current-package',
-  templateUrl: './current-package.component.html',
-  styleUrls: ['./current-package.component.scss']})
-export class CurrentPackageComponent implements OnInit {
+  selector: 'package',
+  templateUrl: './package.component.html',
+  styleUrls: ['./package.component.scss']})
+export class PackageComponent implements OnInit {
 
   pkg!: Song[];
   deleting = false;

@@ -1,0 +1,49 @@
+@import '../../shared/sass/variables';
+@import '../../shared/sass/utils';
+
+.package {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 55px 10px;
+  height: calc(100vh - (55px * 2));
+  max-width: 600px;
+  margin: auto;
+  &-list {
+    margin: 10px;
+    overflow: auto;
+    background-color: $lightGray;
+    border-radius: 7px;
+    @include custom-scrollbar;
+  }
+  .empty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+    p { margin-bottom: 7px; color: $darkGray }    
+  }
+  .btns-group {
+    display: flex;
+    margin: 0 10px 10px 10px;
+    button {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      i { font-size: 1.1em }
+      &.delete-all {
+        background-color: $babyRed;
+        max-width: 200px;
+      }
+      &.download {
+        background-color: $babyGreen;
+        margin-left: 10px;
+      }
+    }
+  }
+}

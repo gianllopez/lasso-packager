@@ -4,10 +4,11 @@
   .presentation {
     text-align: center;
     font-size: 1.3em;
-    p { font-weight: bold; color: $darkGray }
+    h1 { line-height: 1 }
+    p { font-weight: bold }
   }
   .query-interaction {
-    width: 90%; margin: 1.25em auto;
+    width: 90%; margin: 1em auto;
     .search-input {
       position: relative;
       display: flex;
