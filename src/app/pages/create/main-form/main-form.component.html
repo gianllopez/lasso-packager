@@ -3,14 +3,13 @@
   <p>Fill the following fields to continue with the cover</p>
 </div>
 <div class="entries">
-  <custom-input placeholder="Url" [info]="message"></custom-input>
-  <custom-input placeholder="Title"></custom-input>
-  <custom-input placeholder="Artist"></custom-input>
-  <custom-input placeholder="Album"></custom-input>
-  <custom-input placeholder="Genre"></custom-input>
+  <custom-input [control]="form.get('url')" name="url" placeholder="Url"></custom-input>
+  <custom-input [control]="form.get('title')" name="title" placeholder="Title"></custom-input>
+  <custom-input [control]="form.get('artist')" name="artist" placeholder="Artist"></custom-input>
+  <custom-input [control]="form.get('album')" name="album" placeholder="Album"></custom-input>
 </div>
 <div class="btns-group" style="width: calc(100% - 2em); margin: 0 auto">
   <action-button [goback]="true"></action-button>
-  <action-button></action-button>
+  <action-button (click)="onSubmit()"></action-button>
 </div>
 <a href="">Where can i find these information?</a>

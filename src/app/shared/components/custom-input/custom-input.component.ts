@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'custom-input',
@@ -6,8 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./custom-input.component.scss']})
 export class CustomInputComponent {
 
-  @Input() placeholder!: string;
   @Input() name!: string;
-  @Input() info!: string;
+  @Input() placeholder!: string;
+  @Input() control!: AbstractControl | null;
 
+  get formControl() {
+    return this.control as FormControl;
+  };
+  
 };

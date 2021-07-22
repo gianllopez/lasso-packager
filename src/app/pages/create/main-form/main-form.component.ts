@@ -1,15 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'main-form',
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.scss', '../create.styles.scss'],
   host: { class: 'center-form' }})
-export class MainFormComponent {
-  
-  // Let the indent like this, it's not a dev error, it's a JS error.
-  message = `The songs audio are brought from Youtube
-and the tags from the most used music stream platforms,
-to create your song, you must to provide a Youtube MP3 URL.`;
+export class MainFormComponent implements OnInit {
+
+  form!: FormGroup;
+
+  constructor(private fb: FormBuilder) {};
+
+  buildForm(): void {
+    this.form = this.fb.group({
+      url: ['', [ Validators.required ]],
+      title: ['', [ Validators.required ]],
+      artist: ['', [ Validators.required ]],
+      album: ['', [ Validators.required ]]
+    });
+  };
+
+  ngOnInit(): void {
+    this.buildForm();
+  };
+
+  onSubmit(): void {
+    console.log(this.form.value);    
+  };
 
 };

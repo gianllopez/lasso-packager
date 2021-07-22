@@ -7,6 +7,7 @@ import { SongComponent } from './components/song/song.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { IconNameDirective } from './directives/icon-name.directive';
 import { SlideMessageComponent } from './components/slide-message/slide-message.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,18 @@ import { SlideMessageComponent } from './components/slide-message/slide-message.
     IconNameDirective,
     SlideMessageComponent
   ],
-  imports: [ CommonModule, RouterModule ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule
+  ],
   exports: [
     NavbarComponent,
     SongComponent,
     CustomInputComponent,
     ActionButtonComponent,
     IconNameDirective,    
-    SlideMessageComponent
+    SlideMessageComponent,
+    ReactiveFormsModule
   ]})
 export class SharedModule {};
