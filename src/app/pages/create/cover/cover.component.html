@@ -1,13 +1,17 @@
-<div class="presentation">
+<div class="presentation" (click)="debugFn()">
   <h2>Add your song cover</h2>
   <p>If you don’t provide it, we’ll set a default cover</p>
 </div>
 <div class="cover-place">
-  <p>Cover Place</p>
+  <p *ngIf="!cover; else loadedCover">Cover Place</p>
+  <ng-template #loadedCover>
+    <img [src]="cover" alt=""/>
+  </ng-template>
 </div>
 <div class="cover-input">
-  <input type="text" placeholder="Url/File">
-  <button>Upload</button>
+  <input type="text" placeholder="Url or upload locally" (change)="changeHandler($event, 'url')">
+  <button (click)="fileway.click()">Upload</button>
+  <input #fileway type="file" (change)="changeHandler($event, 'file')" hidden>
 </div>
 <div class="btns-group" style="margin-top: 10px">
   <action-button [goback]="true"></action-button>

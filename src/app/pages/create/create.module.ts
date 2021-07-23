@@ -5,6 +5,7 @@ import { CreateRoutingModule } from './create-routing.module';
 import { MainFormComponent } from './main-form/main-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoverComponent } from './cover/cover.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CoverComponent } from './cover/cover.component';
   imports: [
     CommonModule,
     CreateRoutingModule,
+    FormsModule,
     SharedModule
   ]
 })
