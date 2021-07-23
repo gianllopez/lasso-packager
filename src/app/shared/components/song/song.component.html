@@ -17,19 +17,27 @@
         (click)="addToPackage()" 
         src="./assets/icons/actions/add.svg"
         iconName="add"
+      />
+      <a *ngIf="data.spotify_url as sp_url"
+        [href]="sp_url" rel="noopener noreferrer" target="_blank">
+        <img class="spotify" alt=""
+          src="./assets/icons/actions/spotify.svg"
+          iconName="spotify"
         />
-      <img class="spotify" alt=""
-        src="./assets/icons/actions/spotify.svg"
-        iconName="spotify"
+      </a>
+      <a *ngIf="data.deezer_url as dz_url"
+        [href]="dz_url" rel="noopener noreferrer" target="_blank">
+        <img class="deezer" alt=""
+          src="./assets/icons/actions/deezer.svg"
+          iconName="deezer"
         />
-      <img class="deezer" alt=""
-        src="./assets/icons/actions/deezer.svg"
-        iconName="deezer"
+      </a>
+      <a [href]="data.youtube_url" rel="noopener noreferrer" target="_blank">
+        <img class="youtube" alt=""
+          src="./assets/icons/actions/youtube.svg"
+          iconName="youtube"
         />
-      <img class="youtube" alt=""
-        src="./assets/icons/actions/youtube.svg"
-        iconName="youtube"
-        />
+      </a>
     </ng-template>
   </div>
 </div>

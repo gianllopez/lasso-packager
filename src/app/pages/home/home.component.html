@@ -13,7 +13,7 @@
         placeholder="What song are you searching?"
         spellcheck="false"
         [(ngModel)]="song"
-        (input)="onSongChange()"
+        (keyup)="onSongChange()"
       />
     </div>
     <div class="results" (window:scroll)="onScroll()"

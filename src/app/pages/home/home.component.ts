@@ -23,17 +23,19 @@ export class HomeComponent implements OnDestroy, DoCheck {
   loading = false;
   added = false;
   slideMessage!: string;
+  timeout!: any;
 
   constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
 
   onSongChange(): void {
+    clearTimeout(this.timeout);
     if (this.song) {
       this.loading = true;
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         let song$ = this.fetcher.getSong(this.song);
-        this.results = song$.subscribe(data => this.songs = data);
-      }, 750);
-    };    
+        this.results = song$.subscribe(data => { this.songs = data });
+      }, 1000);
+    };
   };
 
   addHandler(song: Song): void {
@@ -44,7 +46,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   };
 
   ngDoCheck(): void {
-    if (this.songs.length) {
+    if (this.songs.length > 0) {
       if (!this.song) { this.songs = [] };
       this.loading = false;
     };

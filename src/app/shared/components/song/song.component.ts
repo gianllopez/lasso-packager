@@ -15,6 +15,6 @@ export class SongComponent {
 
   addToPackage() { this.onAdd.emit(this.data) };
 
-  deleteFromPackage() { this.onDelete.emit(this.index) }; 
+  deleteFromPackage() { this.onDelete.emit(this.index) };
 
 };

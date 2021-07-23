@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SongsPackageService } from '../../../services/songs-package/songs-package.service';
 
 @Component({
   selector: 'main-form',
@@ -10,7 +12,10 @@ export class MainFormComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {};
+  constructor(
+    private fb: FormBuilder,
+    private pkg: SongsPackageService,
+    private router: Router) {};
 
   buildForm(): void {
     this.form = this.fb.group({
@@ -26,7 +31,8 @@ export class MainFormComponent implements OnInit {
   };
 
   onSubmit(): void {
-    console.log(this.form.value);    
+    let data = this.form.value;
+    this.router.navigate(['create/cover'], { state: { data } });
   };
 
 };

@@ -9,12 +9,16 @@ export class IconNameDirective {
 
   constructor(el: ElementRef) { this.element = el.nativeElement };
 
-  getIcon = (icon: string) => `../../../../../assets/icons/actions/${icon}.svg`;
+  getIcon = (icon: string) => `./assets/icons/actions/${icon}.svg`;
 
   @HostListener('mouseenter')
-  onHover() { this.element.src = this.getIcon(`${this.action}-hover`) };
+  onHover() {
+    this.element.src = this.getIcon(`${this.action}-hover`);
+  };
 
   @HostListener('mouseleave')
-  onHoverLeave() { this.element.src = this.getIcon(this.action) };
+  onHoverLeave() {
+    this.element.src = this.getIcon(this.action);
+  };
 
 };
