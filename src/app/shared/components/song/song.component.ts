@@ -13,8 +13,12 @@ export class SongComponent {
   @Output() onAdd = new EventEmitter<Song>();
   @Output() onDelete = new EventEmitter<number>();
 
-  addToPackage() { this.onAdd.emit(this.data) };
+  addToPackage(): void {
+    this.onAdd.emit(this.data);
+  };
 
-  deleteFromPackage() { this.onDelete.emit(this.index) };
+  deleteFromPackage(): void {
+    this.onDelete.emit(this.index);
+  };
 
 };

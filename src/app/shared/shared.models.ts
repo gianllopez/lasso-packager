@@ -6,5 +6,4 @@ export interface Song {
   duration: string;
   deezer_url?: string;
   spotify_url?: string;
-  youtube_url: string;
 };

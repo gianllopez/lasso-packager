@@ -34,7 +34,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
       this.timeout = setTimeout(() => {
         let song$ = this.fetcher.getSong(this.song);
         this.results = song$.subscribe(data => { this.songs = data });
-      }, 1000);
+      }, 500);
     };
   };
 
