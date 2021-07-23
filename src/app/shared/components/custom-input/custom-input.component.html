@@ -1,5 +1,13 @@
 <div class="custom-input">
-  <input type="text" [name]="name" [formControl]="formControl">
-  <label [for]="name">{{ placeholder }}</label>
+  <input
+    type="text"
+    [name]="name"
+    autocomplete="off"
+    [ngClass]="{ 'valid': control?.value.length > 0 }"
+    [formControl]="formControl"
+  />
+  <label [for]="name">
+    {{ placeholder }}
+  </label>
   <p class="info" *ngIf="false">?</p>
 </div>

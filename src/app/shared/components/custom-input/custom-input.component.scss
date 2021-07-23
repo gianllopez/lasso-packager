@@ -10,13 +10,11 @@
     border: none;
     outline: none;
     transition-duration: .25s;
-    &:focus-within {
+    &.valid {
       padding-top: 25px;
-      & + label {
-        top: 15px;
-        & + .info { opacity: 0 }
-      }
+      & + label { top: 15px }
     }
+    &:focus-within { @extend .valid }
   }
   label {
     position: absolute;
@@ -26,6 +24,7 @@
     font-size: .9em;
     color: $darkGray;
     pointer-events: none;
+    transition-duration: .25s;
   }
   .info {
     position: absolute;
