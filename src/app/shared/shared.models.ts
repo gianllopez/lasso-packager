@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
+
 export interface Song {
   title: string;
   album: string;
@@ -7,3 +9,8 @@ export interface Song {
   deezer_url?: string;
   spotify_url?: string;
 };
+
+export interface CustomSafeUrl {
+  url: string;
+  safeUrl: SafeResourceUrl;
+}
