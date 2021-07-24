@@ -1,5 +1,6 @@
-import { Component, OnInit, Sanitizer } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Song } from 'src/app/shared/shared.models';
 
 @Component({
@@ -9,19 +10,19 @@ import { Song } from 'src/app/shared/shared.models';
 export class CoverComponent implements OnInit {
 
   data!: Song;
-  cover!: string;
+  cover!: SafeUrl;
 
-  constructor(private router: Router) {};
+  constructor(private router: Router, private sanitizer: DomSanitizer) {};
 
-  blobToImage(file: File | null | undefined): string {
-    let blob = URL.createObjectURL(file);
-    return '';
+  getSafeUrl(file: File | string | null | undefined): SafeUrl {
+    let url = URL.createObjectURL(file),
+    safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    return safeUrl;
   };
 
   changeHandler(e: Event, type: string): void {
     let { value, files } = e.target as HTMLInputElement;
-    this.cover = type === 'url' ?
-      value : this.blobToImage(files?.item(0));
+    this.cover = type === 'url' ? value : this.getSafeUrl(files?.item(0));
   };
 
   debugFn(): void {

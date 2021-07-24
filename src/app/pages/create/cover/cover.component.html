@@ -5,13 +5,17 @@
 <div class="cover-place">
   <p *ngIf="!cover; else loadedCover">Cover Place</p>
   <ng-template #loadedCover>
-    <img [src]="cover" alt=""/>
+    <img class="loaded-cover" [src]="cover" alt="" />
   </ng-template>
 </div>
 <div class="cover-input">
-  <input type="text" placeholder="Url or upload locally" (change)="changeHandler($event, 'url')">
+  <input
+    type="text"
+    placeholder="Url or upload locally"
+    (change)="changeHandler($event, 'url')"
+  />
   <button (click)="fileway.click()">Upload</button>
-  <input #fileway type="file" (change)="changeHandler($event, 'file')" hidden>
+  <input #fileway type="file" (change)="changeHandler($event, 'file')" hidden />
 </div>
 <div class="btns-group" style="margin-top: 10px">
   <action-button [goback]="true"></action-button>
