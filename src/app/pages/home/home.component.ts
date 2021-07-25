@@ -25,7 +25,9 @@ export class HomeComponent implements OnDestroy, DoCheck {
   slideMessage!: string;
   timeout!: any;
 
-  constructor(private fetcher: FetcherService, private songsPackage: SongsPackageService) {};
+  constructor(
+    private fetcher: FetcherService,
+    private songsPackage: SongsPackageService) {};
 
   onSongChange(): void {
     clearTimeout(this.timeout);

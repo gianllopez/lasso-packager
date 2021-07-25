@@ -9,5 +9,6 @@ export class SlideMessageComponent {
   @Input() display!: boolean;
   @Input() message!: string;
   @Input() danger!: boolean;
+  @Input() top!: boolean;
 
 };

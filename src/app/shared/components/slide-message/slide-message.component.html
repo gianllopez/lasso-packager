@@ -1,4 +1,8 @@
-<div class="slide-message" [ngClass]="{ 'display': display, 'danger-mode': danger }">
+<div class="slide-message"
+  [ngClass]="{
+    'display': display,
+    'danger-mode': danger,
+    'from-top': top }">
   <p>{{ message }}</p>
   <i class="uil uil-check-circle"></i>
 </div>

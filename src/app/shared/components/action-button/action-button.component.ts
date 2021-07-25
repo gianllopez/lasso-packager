@@ -9,5 +9,6 @@ export class ActionButtonComponent {
   @Input() goback!: boolean;
   @Input() label!: string;
   @Input() includeIcon = true;
+  @Input() disabled!: boolean;
   
 };

@@ -1,4 +1,4 @@
-<button class="action-btn" [ngClass]="{'go-back': goback}" >
+<button class="action-btn" [ngClass]="{'go-back': goback}" [disabled]="disabled">
   <p *ngIf="!goback">{{ label || 'Continue' }}</p>
-  <img src="../../../../assets/icons/arrow.svg" alt="" *ngIf="includeIcon">
+  <img src="./assets/icons/arrow.svg" alt="" *ngIf="includeIcon">
 </button>

@@ -10,6 +10,6 @@
 </div>
 <div class="btns-group" style="width: calc(100% - 2em); margin: 0 auto">
   <action-button [goback]="true"></action-button>
-  <action-button (click)="onSubmit()"></action-button>
+  <action-button (click)="onSubmit()" [disabled]="form.invalid"></action-button>
 </div>
 <a href="">Where can i find these information?</a>
