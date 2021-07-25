@@ -14,7 +14,6 @@ export class MainFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private pkg: SongsPackageService,
     private router: Router) {};
 
   buildForm(): void {
@@ -28,6 +27,8 @@ export class MainFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    let { data } = window.history.state;
+    if (data) { this.form.setValue(data) };
   };
 
   onSubmit(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CustomSafeUrl, Song } from 'src/app/shared/shared.models';
+import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
 
 @Component({
   selector: 'cover',
@@ -13,7 +14,12 @@ export class CoverComponent implements OnInit {
   cover = '';
   preview!: SafeUrl;
 
-  constructor(private router: Router, private sanitizer: DomSanitizer) {};
+  added = false;
+
+  constructor(
+    private router: Router,
+    private sanitizer: DomSanitizer,
+    private pkg: SongsPackageService) {};
 
   getSafeUrl(file: File | string | null | undefined): CustomSafeUrl {
     let url = URL.createObjectURL(file),
@@ -30,16 +36,28 @@ export class CoverComponent implements OnInit {
     };
   };
 
-  debugFn(): void {
-    console.log(this.cover);
+  completeHandler(): void {
+    let newSong = { ...this.data, cover: this.cover || 'default' };
+    this.pkg.addSong(newSong, false);
+    this.added = true;
+    setTimeout(() => {
+      this.added = false;
+      this.router.navigateByUrl('');
+    }, 700);
+  };
+
+  backHandler(): void {
+    this.router.navigate(['/create'], {
+      state: { data: this.data }
+    });
   };
 
   ngOnInit(): void {
     let { data } = window.history.state;
-    if (!data) {
-      // this.router.navigateByUrl('');
-    } else {
+    if (data) {
       this.data = data;
+    } else {
+      this.router.navigateByUrl('');
     };
   };
 

@@ -18,10 +18,10 @@ export class SongsPackageService {
     return data.every(item => item.cover !== song.cover);
   };
 
-  addSong(song: Song) {
+  addSong(song: Song, validate = true) {
     let pkg = this.getPackage,
     wasntAdded = this.notAddedYet(song);
-    if (wasntAdded) {
+    if (wasntAdded || !validate) {
       pkg.push(song); this.setPackage(pkg);
     };
     return wasntAdded;

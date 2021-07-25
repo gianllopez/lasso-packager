@@ -1,4 +1,4 @@
-<div class="presentation" (click)="debugFn()">
+<div class="presentation">
   <h2>Add your song cover</h2>
   <p>If you don’t provide it, we’ll set a default cover</p>
 </div>
@@ -19,6 +19,11 @@
   <input #fileway type="file" (change)="changeHandler($event, 'file')" hidden />
 </div>
 <div class="btns-group" style="margin-top: 10px">
-  <action-button [goback]="true"></action-button>
-  <action-button></action-button>
+  <action-button [goback]="true" (click)="backHandler()"></action-button>
+  <action-button (click)="completeHandler()"></action-button>
 </div>
+<slide-message
+  [display]="added"
+  message="Created succesfully!"
+  [top]="true">
+</slide-message>

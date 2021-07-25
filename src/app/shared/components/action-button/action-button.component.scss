@@ -16,9 +16,14 @@
     font-weight: bold;
     font-size: 1.15em;
   }
-  img { width: 13px }
+  img { transition-duration: .25s }
   &.go-back {
     background-color: $babyRed;
-    img { transform: rotate(180deg) }
+    img { width: 15px; transform: rotate(180deg) }
+  }
+  &:disabled {
+    background-color: darken($babyGreen, 25%);
+    cursor: initial;
+    img { opacity: 0 }
   }
 }

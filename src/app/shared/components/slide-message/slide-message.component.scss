@@ -1,4 +1,5 @@
 @import '../../sass/variables';
+
 .slide-message {
   position: fixed; 
   bottom: -55px; right: 50%;
@@ -17,4 +18,8 @@
   i { font-size: 1.4em; margin-left: 7px }
   &.display { bottom: 10px }
   &.danger-mode { background-color: $babyRed }
+  &.from-top {
+    top: -55px;
+    &.display { top: 10px }
+  }
 }
