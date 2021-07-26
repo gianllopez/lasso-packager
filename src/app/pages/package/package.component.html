@@ -3,11 +3,11 @@
     <h2>Your package</h2>
     <p>You’ve added the following songs</p>
   </div>
-  <div class="package-list" [ngClass]="{'empty': !pkg.length}">
-    <ng-container *ngIf="pkg.length; else emptyPackage">
-      <song *ngFor="let song of pkg"
+  <div class="package-list" [ngClass]="{'empty': !_package.length}">
+    <ng-container *ngIf="_package.length; else emptyPackage">
+      <song *ngFor="let song of _package"
         [data]="song"
-        [index]="pkg.indexOf(song)"
+        [index]="_package.indexOf(song)"
         (onDelete)="deleteHandler($event)"
         style="margin: 10px; border-radius: 6px">
       </song>
@@ -21,16 +21,15 @@
       Delete all
       <i class="uil uil-trash-alt"></i>
     </button>
-    <button class="download">
+    <a class="download" (click)="onDownload()" [href]="downloadURL" download="lasso-package.json">
       Download
       <i class="uil uil-arrow-to-bottom"></i>
-    </button>
+    </a>
   </div>
-  <a href="">How does the songs package work?</a>
+  <a routerLink="/center/information">How does the songs package work?</a>
 </div>
 <slide-message
   [danger]="true"
-  class="rm-message"
   [display]="deleting"
-  message="Succesfully removed song!">
+  message="Song has been removed!">
 </slide-message>

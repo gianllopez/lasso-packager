@@ -21,10 +21,10 @@ export class CoverComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private pkg: SongsPackageService) {};
 
-  getSafeUrl(file: File | string | null | undefined): CustomSafeUrl {
-    let url = URL.createObjectURL(file),
+  getSafeUrl(source: File | string | null | undefined): CustomSafeUrl {
+    let url = URL.createObjectURL(source),
     safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    return { url, safeUrl };
+    return { url: source !== 'default' ? url : source, safeUrl };
   };
 
   changeHandler(e: Event, type: string): void {
@@ -38,9 +38,12 @@ export class CoverComponent implements OnInit {
 
   completeHandler(): void {
     let newSong = { ...this.data, cover: this.cover || 'default' };
-    this.pkg.addSong(newSong);
+    this.pkg.addSong(newSong, false);
     this.added = true;
-    setTimeout(() => this.added = false, 700);
+    setTimeout(() => {
+      this.added = false;
+      this.router.navigateByUrl('');
+    }, 700);
   };
 
   backHandler(): void {
@@ -54,7 +57,7 @@ export class CoverComponent implements OnInit {
     if (data) {
       this.data = data;
     } else {
-      // this.router.navigateByUrl('');
+      this.router.navigateByUrl('');
     };
   };
 
