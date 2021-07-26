@@ -1,5 +1,5 @@
 <figure>
-  <img [src]="data?.cover" alt="">
+  <img [src]="data?.cover !== 'default' ? data.cover : './assets/default-cover.jpg'" alt="">
 </figure>
 <div>
   <div class="song-tags">
