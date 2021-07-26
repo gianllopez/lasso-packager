@@ -21,10 +21,10 @@ export class CoverComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private pkg: SongsPackageService) {};
 
-  getSafeUrl(file: File | string | null | undefined): CustomSafeUrl {
-    let url = URL.createObjectURL(file),
+  getSafeUrl(source: File | string | null | undefined): CustomSafeUrl {
+    let url = URL.createObjectURL(source),
     safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    return { url, safeUrl };
+    return { url: source !== 'default' ? url : source, safeUrl };
   };
 
   changeHandler(e: Event, type: string): void {
