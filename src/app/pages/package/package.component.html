@@ -25,8 +25,9 @@
       <i class="uil uil-trash-alt"></i>
     </button>
     <button class="download" (click)="onDownload()" [disabled]="fetching">
-      Set up for download
+      {{ isReady ? 'Download' : 'Set up for download' }}      
       <i class="uil uil-sliders-v-alt"></i>
+      <a [href]="downloadUrl" download="lasso-package.json"></a>
     </button>
   </div>
   <a routerLink="/center/information">How does the songs package work?</a>

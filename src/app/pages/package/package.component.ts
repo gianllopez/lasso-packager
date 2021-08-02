@@ -14,9 +14,15 @@ export class PackageComponent implements OnInit {
   newPackage: Song[] = [];
   deleting = false;
   fetching = false;
+  isReady = false;
   findex = 0; // fetching index
 
-  constructor(private pkg: SongsPackageService, private fetcher: FetcherService) {};
+  downloadUrl!: SafeUrl;
+
+  constructor(
+    private pkg: SongsPackageService,
+    private fetcher: FetcherService,
+    private sanitizer: DomSanitizer) {};
 
   updatePackage(): void {
     this._package = this.pkg.getPackage;
@@ -44,12 +50,15 @@ export class PackageComponent implements OnInit {
     };
     if (this.findex === this._package.length) {
       this.fetching = false;
-      this.pkg.setPackage(this.newPackage);            
+      this.isReady = true;
+      this.pkg.setPackage(this.newPackage);
+      let pkgstr = JSON.stringify(this.newPackage),
+      url = `data:text/json;charset=UTF-8,${encodeURIComponent(pkgstr)}`,
+      json = this.sanitizer.bypassSecurityTrustUrl(url);
+      this.downloadUrl = json;
     };
   };
   
-  onDownload(): void {
-    this.fetching = true;
-  };
+  onDownload(): void { this.fetching = true };
 
 };
