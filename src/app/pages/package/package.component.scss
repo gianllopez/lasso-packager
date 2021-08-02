@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 60px 10px;
-  height: calc(100vh - (55px * 2));
+  height: calc(100vh - (60px * 2));
   max-width: 600px;
   margin: auto;
   &-list {
@@ -27,8 +27,7 @@
   .btns-group {
     display: flex;
     margin: 0 10px 10px 10px;
-    a { text-decoration: none }
-    button, a {
+    button {
       width: 100%;
       padding: 12px 0;
       font-size: 1em;
@@ -45,8 +44,10 @@
         background-color: $babyGreen;
         margin-left: 10px;
       }
+      &:disabled { cursor: not-allowed }
     }
   }
+  a { width: max-content; margin: auto }
 }
 
 :host ::ng-deep slide-message div { max-width: 340px !important }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
 import { Song } from 'src/app/shared/shared.models';
 
@@ -10,10 +11,11 @@ import { Song } from 'src/app/shared/shared.models';
 export class PackageComponent implements OnInit {
 
   _package!: Song[];
-  downloadURL!: SafeUrl;
+  completePackage: Song[] = [];
   deleting = false;
+  fetching = false;
 
-  constructor(private pkg: SongsPackageService, private sanitizer: DomSanitizer) {};
+  constructor(private pkg: SongsPackageService, private fetcher: FetcherService) {};
 
   updatePackage(): void {
     this._package = this.pkg.getPackage;
@@ -33,11 +35,13 @@ export class PackageComponent implements OnInit {
     this.updatePackage();
   };
   
-  onDownload(): void {
-    let pkgstr = JSON.stringify(this._package),
-    url = `data:text/json;charset=UTF-8,${encodeURIComponent(pkgstr)}`,
-    json = this.sanitizer.bypassSecurityTrustUrl(url);
-    this.downloadURL = json;
+  async onDownload(): Promise<void> {
+    this.fetching = true;
+    for (let song of this._package) {
+      let url = await this.fetcher.getUrl(song.title);
+      this.completePackage.push({ ...song, ...url });
+    };
+    console.log(this.completePackage);
   };
 
 };

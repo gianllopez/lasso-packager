@@ -9,6 +9,7 @@
         [data]="song"
         [index]="_package.indexOf(song)"
         (onDelete)="deleteHandler($event)"
+        [loading]="fetching"
         style="margin: 10px; border-radius: 6px">
       </song>
     </ng-container>
@@ -17,14 +18,14 @@
     </ng-template>
   </div>
   <div class="btns-group">
-    <button class="delete-all" (click)="clearPackage()">
+    <button class="delete-all" (click)="clearPackage()" [disabled]="fetching">
       Delete all
       <i class="uil uil-trash-alt"></i>
     </button>
-    <a class="download" (click)="onDownload()" [href]="downloadURL" download="lasso-package.json">
-      Download
-      <i class="uil uil-arrow-to-bottom"></i>
-    </a>
+    <button class="download" (click)="onDownload()" [disabled]="fetching">
+      Set up for download
+      <i class="uil uil-sliders-v-alt"></i>
+    </button>
   </div>
   <a routerLink="/center/information">How does the songs package work?</a>
 </div>

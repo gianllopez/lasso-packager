@@ -48,6 +48,18 @@
         cursor: pointer;
         &:hover { color: $babyRed }
       }
+      .loader {
+        width: 15px; height: 15px;
+        margin-right: 5px;
+        border-radius: 50%;
+        border: 3px solid $babyGreen;
+        border-top-color: transparent;
+        @keyframes spin {
+          from { transform: rotate(0) }
+          to { transform: rotate(360deg) }
+        }
+        animation: spin 1s infinite;
+      }
     }
   }
 }

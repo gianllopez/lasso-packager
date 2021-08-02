@@ -8,9 +8,10 @@ export interface Song {
   duration: string;
   deezer_url?: string;
   spotify_url?: string;
+  url?: string;
 };
 
 export interface CustomSafeUrl {
   url: string;
   safeUrl: SafeResourceUrl;
-}
+};

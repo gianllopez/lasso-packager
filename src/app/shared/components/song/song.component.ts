@@ -9,6 +9,7 @@ export class SongComponent {
 
   @Input() data!: Song;
   @Input() index!: number;
+  @Input() loading!: boolean;
 
   @Output() onAdd = new EventEmitter<Song>();
   @Output() onDelete = new EventEmitter<number>();

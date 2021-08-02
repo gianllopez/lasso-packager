@@ -8,10 +8,13 @@
     <p>{{ data?.album }}</p>
   </div>
   <div class="actions">
-    <i class="uil uil-trash-alt del-action"
-      style="font-size: 1.6em"
-      *ngIf="index || index === 0; else actions"
-      (click)="deleteFromPackage()"></i>
+    <div class="loader"*ngIf="loading; else deleteAction"></div>
+    <ng-template #deleteAction>
+      <i class="uil uil-trash-alt del-action" style="font-size: 1.6em"
+        *ngIf="index || index === 0; else actions"
+        (click)="deleteFromPackage()">
+      </i>
+    </ng-template>
     <ng-template #actions>
       <img class="add" alt=""
         (click)="addToPackage()" 
