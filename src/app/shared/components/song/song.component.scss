@@ -60,6 +60,10 @@
         }
         animation: spin 1s infinite;
       }
+      .fetched {
+        font-size: 1.75em;
+        color: $babyGreen;
+      }
     }
   }
 }

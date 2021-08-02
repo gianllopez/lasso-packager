@@ -35,13 +35,23 @@ export class PackageComponent implements OnInit {
     this.updatePackage();
   };
   
-  async onDownload(): Promise<void> {
-    this.fetching = true;
-    for (let song of this._package) {
-      let url = await this.fetcher.getUrl(song.title);
-      this.completePackage.push({ ...song, ...url });
-    };
-    console.log(this.completePackage);
+  completeSongPusher(song: Song) {
+    this.completePackage.push(song);
+  };
+
+  onDownload(): void {
+    if (!this.fetching) {
+
+      this.fetching = true;
+    } else {
+      
+      console.log(this.completePackage);
+    }
+    // for (let song of this._package) {
+    //   let url = await this.fetcher.getUrl(song.title);
+    //   this.completePackage.push({ ...song, ...url });
+    // };
+    // console.log(this.completePackage);
   };
 
 };
