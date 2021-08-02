@@ -1,4 +1,4 @@
-<figure>
+<figure> 
   <img [src]="data?.cover !== 'default' ? data.cover : './assets/default-cover.jpg'" alt="">
 </figure>
 <div>
@@ -7,34 +7,37 @@
     <p>{{ data?.artist }}</p>
     <p>{{ data?.album }}</p>
   </div>
-  <div class="actions">
-    <div class="loader"*ngIf="loading; else deleteAction"></div>
-    <ng-template #deleteAction>
-      <i class="uil uil-trash-alt del-action" style="font-size: 1.6em"
-        *ngIf="index || index === 0; else actions"
-        (click)="deleteFromPackage()">
-      </i>
-    </ng-template>
-    <ng-template #actions>
-      <img class="add" alt=""
-        (click)="addToPackage()" 
-        src="./assets/icons/actions/add.svg"
-        iconName="add"
-      />
-      <a *ngIf="data.spotify_url as sp_url"
-        [href]="sp_url" rel="noopener noreferrer" target="_blank">
-        <img class="spotify" alt=""
-          src="./assets/icons/actions/spotify.svg"
-          iconName="spotify"
+  <i class="uil uil-check-circle fetched" *ngIf="fetched; else rest"></i>
+  <ng-template #rest>
+    <div class="actions">
+      <div class="loader"*ngIf="loading && !fetched; else deleteAction"></div>
+      <ng-template #deleteAction>
+        <i class="uil uil-trash-alt del-action" style="font-size: 1.6em"
+          *ngIf="index || index === 0; else actions"
+          (click)="deleteFromPackage()">
+        </i>
+      </ng-template>
+      <ng-template #actions>
+        <img class="add" alt=""
+          (click)="addToPackage()" 
+          src="./assets/icons/actions/add.svg"
+          iconName="add"
         />
-      </a>
-      <a *ngIf="data.deezer_url as dz_url"
-        [href]="dz_url" rel="noopener noreferrer" target="_blank">
-        <img class="deezer" alt=""
-          src="./assets/icons/actions/deezer.svg"
-          iconName="deezer"
-        />
-      </a>
-    </ng-template>
-  </div>
+        <a *ngIf="data.spotify_url as sp_url"
+          [href]="sp_url" rel="noopener noreferrer" target="_blank">
+          <img class="spotify" alt=""
+            src="./assets/icons/actions/spotify.svg"
+            iconName="spotify"
+          />
+        </a>
+        <a *ngIf="data.deezer_url as dz_url"
+          [href]="dz_url" rel="noopener noreferrer" target="_blank">
+          <img class="deezer" alt=""
+            src="./assets/icons/actions/deezer.svg"
+            iconName="deezer"
+          />
+        </a>
+      </ng-template>
+    </div>
+  </ng-template>
 </div>

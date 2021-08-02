@@ -7,9 +7,11 @@
     <ng-container *ngIf="_package.length; else emptyPackage">
       <song *ngFor="let song of _package"
         [data]="song"
+        [loading]="fetching"
+        [fetchingIndex]="findex"
         [index]="_package.indexOf(song)"
         (onDelete)="deleteHandler($event)"
-        [loading]="fetching"
+        (onFetched)="updatedFetching($event)"
         style="margin: 10px; border-radius: 6px">
       </song>
     </ng-container>

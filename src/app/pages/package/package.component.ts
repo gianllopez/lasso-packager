@@ -11,9 +11,10 @@ import { Song } from 'src/app/shared/shared.models';
 export class PackageComponent implements OnInit {
 
   _package!: Song[];
-  completePackage: Song[] = [];
+  newPackage: Song[] = [];
   deleting = false;
   fetching = false;
+  findex = 0; // fetching index
 
   constructor(private pkg: SongsPackageService, private fetcher: FetcherService) {};
 
@@ -34,14 +35,21 @@ export class PackageComponent implements OnInit {
     this.pkg.setPackage([]);
     this.updatePackage();
   };
-  
-  async onDownload(): Promise<void> {
-    this.fetching = true;
-    for (let song of this._package) {
-      let url = await this.fetcher.getUrl(song.title);
-      this.completePackage.push({ ...song, ...url });
+
+  updatedFetching(updatedSong: Song): void {
+    if (this.findex < this._package.length) {
+      this.newPackage.push(updatedSong);
+      this.findex++;
+      console.log(this.findex, this._package.length)
     };
-    console.log(this.completePackage);
+    if (this.findex === this._package.length) {
+      this.fetching = false;
+      this.pkg.setPackage(this.newPackage);            
+    };
+  };
+  
+  onDownload(): void {
+    this.fetching = true;
   };
 
 };
