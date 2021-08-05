@@ -8,18 +8,20 @@ import { Song } from 'src/app/shared/shared.models';
   styleUrls: ['./song.component.scss']})
 export class SongComponent implements OnChanges {
 
-  localLoading = false;
   fetched = false;
+  localLoading = false;
 
-  constructor (private fetcher: FetcherService) {};
-  
+  constructor(private fetcher: FetcherService) {};
+
   @Input() data!: Song;
   @Input() index!: number;
+  @Input() fetchingIndex!: number;
   @Input() loading!: boolean;
 
   @Output() onAdd = new EventEmitter<Song>();
   @Output() onDelete = new EventEmitter<number>();
   @Output() onFetched = new EventEmitter<Song>();
+
 
   addToPackage(): void {
     this.onAdd.emit(this.data);
@@ -30,13 +32,11 @@ export class SongComponent implements OnChanges {
   };
 
   async ngOnChanges(): Promise<void> {
-    if (this.loading) {
-      this.localLoading = true;
-      let { title, ...rest } = this.data,
-      url = await this.fetcher.getUrl(title),
-      newSong = { ...rest, title, ...url };
-      this.onFetched.emit(newSong);
-      this.localLoading = false;
+    let isFetching = this.fetchingIndex === this.index;
+    if (this.loading && isFetching) {
+      let url = await this.fetcher.getUrl(this.data.title || ''),
+      updatedSong = { ...this.data, ...url };
+      this.onFetched.emit(updatedSong);
       this.fetched = true;
     };
   };

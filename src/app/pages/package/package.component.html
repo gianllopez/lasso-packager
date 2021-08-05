@@ -8,9 +8,10 @@
       <song *ngFor="let song of _package"
         [data]="song"
         [loading]="fetching"
+        [fetchingIndex]="findex"
         [index]="_package.indexOf(song)"
         (onDelete)="deleteHandler($event)"
-        (onFetched)="completeSongPusher($event)"
+        (onFetched)="updatedFetching($event)"
         style="margin: 10px; border-radius: 6px">
       </song>
     </ng-container>
@@ -24,8 +25,9 @@
       <i class="uil uil-trash-alt"></i>
     </button>
     <button class="download" (click)="onDownload()" [disabled]="fetching">
-      Set up for download
-      <i class="uil uil-sliders-v-alt"></i>
+      {{ isReady ? 'Download' : 'Set up for download' }}      
+      <i [class]="isReady ? 'uil uil-import' : 'uil uil-sliders-v-alt'"></i>
+      <a [href]="downloadUrl" download="lasso-package.json"></a>
     </button>
   </div>
   <a routerLink="/center/information">How does the songs package work?</a>

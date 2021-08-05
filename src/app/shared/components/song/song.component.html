@@ -1,4 +1,4 @@
-<figure>
+<figure> 
   <img [src]="data?.cover !== 'default' ? data.cover : './assets/default-cover.jpg'" alt="">
 </figure>
 <div>
@@ -7,10 +7,10 @@
     <p>{{ data?.artist }}</p>
     <p>{{ data?.album }}</p>
   </div>
-  <div class="actions">
-    <i class="uil uil-check-circle fetched"*ngIf="fetched; else rest"></i>
-    <ng-template #rest>
-      <div class="loader"*ngIf="loading && localLoading; else deleteAction"></div>
+  <i class="uil uil-check-circle fetched" *ngIf="fetched; else rest"></i>
+  <ng-template #rest>
+    <div class="actions">
+      <div class="loader"*ngIf="loading && !fetched; else deleteAction"></div>
       <ng-template #deleteAction>
         <i class="uil uil-trash-alt del-action" style="font-size: 1.6em"
           *ngIf="index || index === 0; else actions"
@@ -38,6 +38,6 @@
           />
         </a>
       </ng-template>
-    </ng-template>
-  </div>
+    </div>
+  </ng-template>
 </div>

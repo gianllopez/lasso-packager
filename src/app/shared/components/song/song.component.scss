@@ -34,6 +34,11 @@
         }
       }
     }
+    .fetched {
+      font-size: 1.7em;
+      margin-right: 17px;
+      color: $babyGreen;
+    }
     .actions {
       margin: 0 min(4%, 15px) 0 5px;
       display: flex; // for long tags overflow
