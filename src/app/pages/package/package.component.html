@@ -24,10 +24,10 @@
       Delete all
       <i class="uil uil-trash-alt"></i>
     </button>
-    <button class="download" (click)="onDownload()" [disabled]="fetching">
+    <button class="download" (click)="isReady ? dl.click() : onDownload()" [disabled]="fetching">
       {{ isReady ? 'Download' : 'Set up for download' }}      
       <i [class]="isReady ? 'uil uil-import' : 'uil uil-sliders-v-alt'"></i>
-      <a [href]="downloadUrl" download="lasso-package.json"></a>
+      <a #dl [href]="downloadUrl" download="lasso-package.json"></a>
     </button>
   </div>
   <a routerLink="/center/information">How does the songs package work?</a>
