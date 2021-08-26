@@ -1,6 +1,6 @@
 import { Component, OnDestroy, DoCheck } from '@angular/core';
 import { AnimationOptions as AnimConfig } from 'ngx-lottie';
-import {  Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
 import { Song } from 'src/app/shared/shared.models';
@@ -19,7 +19,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
   results!: Subscription;
   
   hideLottie = false;
-  showSTbutton = false;
+  scrolledDown = false;
   loading = false;
   added = false;
   slideMessage!: string;
@@ -35,7 +35,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
       this.loading = true;
       this.timeout = setTimeout(() => {
         let song$ = this.fetcher.getSong(this.song);
-        this.results = song$.subscribe(data => { this.songs = data });
+        this.results = song$.subscribe(resp => { this.songs = resp });
       }, 500);
     };
   };
@@ -56,7 +56,7 @@ export class HomeComponent implements OnDestroy, DoCheck {
 
   onScroll(): void {
     this.hideLottie = window.scrollY > 0;
-    this.showSTbutton = window.scrollY > 400;
+    this.scrolledDown = window.scrollY > 400;
   };
 
   toTop(): void { window.scrollTo({ top: 0, behavior: 'smooth' }) }
