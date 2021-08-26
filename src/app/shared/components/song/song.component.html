@@ -1,16 +1,16 @@
 <figure> 
-  <img [src]="data?.cover !== 'default' ? data.cover : './assets/default-cover.jpg'" alt="">
+  <img [src]="data?.cover ? data.cover : './assets/default-cover.jpg'" alt="">
 </figure>
-<div>
+<div class="song-content">
   <div class="song-tags">
     <p>{{ data?.title }}</p>
     <p>{{ data?.artist }}</p>
     <p>{{ data?.album }}</p>
   </div>
-  <i class="uil uil-check-circle fetched" *ngIf="fetched; else rest"></i>
+  <i class="uil uil-check-circle fetched-icon" *ngIf="fetched; else rest"></i>
   <ng-template #rest>
     <div class="actions">
-      <div class="loader"*ngIf="loading && !fetched; else deleteAction"></div>
+      <div class="loader"*ngIf="loading; else deleteAction"></div>
       <ng-template #deleteAction>
         <i class="uil uil-trash-alt del-action" style="font-size: 1.6em"
           *ngIf="index || index === 0; else actions"

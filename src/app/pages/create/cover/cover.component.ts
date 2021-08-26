@@ -24,7 +24,7 @@ export class CoverComponent implements OnInit {
   getSafeUrl(source: File | string | null | undefined): CustomSafeUrl {
     let url = URL.createObjectURL(source),
     safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    return { url: source !== 'default' ? url : source, safeUrl };
+    return { url, safeUrl };
   };
 
   changeHandler(e: Event, type: string): void {
@@ -37,7 +37,7 @@ export class CoverComponent implements OnInit {
   };
 
   completeHandler(): void {
-    let newSong = { ...this.data, cover: this.cover || 'default' };
+    let newSong = { ...this.data, cover: this.cover };
     this.pkg.addSong(newSong, false);
     this.added = true;
     setTimeout(() => {

@@ -10,7 +10,7 @@ import { Song } from 'src/app/shared/shared.models';
   styleUrls: ['./package.component.scss']})
 export class PackageComponent implements OnInit {
 
-  _package!: Song[];
+  _package: Song[] = [];
   newPackage: Song[] = [];
   deleting = false;
   fetching = false;
@@ -21,32 +21,33 @@ export class PackageComponent implements OnInit {
 
   constructor(
     private pkg: SongsPackageService,
-    private fetcher: FetcherService,
     private sanitizer: DomSanitizer) {};
 
-  updatePackage(): void {
+  loadPackage(): void {
     this._package = this.pkg.getPackage;
   };
 
-  ngOnInit(): void { this.updatePackage() };
+  ngOnInit(): void {
+    this.loadPackage();
+  };
 
   deleteHandler(index: number) {
     this.pkg.deleteSong(index);
-    this.updatePackage();
+    this.loadPackage();
     this.deleting = true;
     setTimeout(() => this.deleting = false, 750);
   };
   
   clearPackage(): void {
     this.pkg.setPackage([]);
-    this.updatePackage();
+    this.loadPackage();
   };
 
-  updatedFetching(updatedSong: Song): void {
+  // Review good:
+  updateFetching(updatedSong: Song): void {
     if (this.findex < this._package.length) {
       this.newPackage.push(updatedSong);
       this.findex++;
-      console.log(this.findex, this._package.length)
     };
     if (this.findex === this._package.length) {
       this.fetching = false;

@@ -5,54 +5,40 @@
   background-color: white;
   border-radius: $radiusBase;
   max-height: 70px;
-  figure, > div { display: flex; align-items: center }
-  figure {
-    min-width: 50px;
-    margin: min(2%, 10px);
-    img {
-      width: auto; height: 55px;
-      border-radius: 6px;
-    }
+  figure, .song-content { display: flex; align-items: center }
+  figure { margin: min(2%, 10px);
+    img { height: 55px; border-radius: 6px }
   }
-  > div {
+  .song-content {
     flex: 1; justify-content: space-between;
     font-size: min(4vw, 15px);
-    text-align: left;
-    overflow: scroll; // for long tags overflow
-    &::-webkit-scrollbar { display: none }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    .song-tags {
-      p {
-        white-space: nowrap;
-        max-width: 355px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        &:not(:first-of-type) {
-          color: $darkGray;
-          font-size: .9em;
-        }
+    .song-tags p {
+      white-space: nowrap;
+      max-width: 355px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      &:not(:first-of-type) {
+        color: $darkGray;
+        font-size: .9em;
       }
     }
-    .fetched {
+    .fetched-icon {
       font-size: 1.7em;
       margin-right: 17px;
       color: $babyGreen;
     }
+
     .actions {
       margin: 0 min(4%, 15px) 0 5px;
-      display: flex; // for long tags overflow
+      display: flex;
       a { display: flex }
+      img, a img, .del-action { cursor: pointer }
       img, a img {
         width: min(6vw, 25px);        
         margin-right: 7px;
-        cursor: pointer;
         &.download { width: min(5vw, 20px) }
       }
-      .del-action {
-        cursor: pointer;
-        &:hover { color: $babyRed }
-      }
+      .del-action:hover { color: $babyRed }
       .loader {
         width: 15px; height: 15px;
         margin-right: 5px;
@@ -65,10 +51,8 @@
         }
         animation: spin 1s infinite;
       }
-      .fetched {
-        font-size: 1.75em;
-        color: $babyGreen;
-      }
     }
   }
 }
+
+// This stylesheet was reviewed (and summarized) on 08/26/2021;

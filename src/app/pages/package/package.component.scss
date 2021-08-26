@@ -9,24 +9,22 @@
   height: calc(100vh - (60px * 2));
   max-width: 600px;
   margin: auto;
+  &-list, .btns-group { margin: 10px }
   &-list {
-    margin: 10px;
     overflow: auto;
     background-color: $lightGray;
     border-radius: 7px;
     @include custom-scrollbar;
-  }
-  .empty {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 250px;
-    p { margin-bottom: 7px; color: $darkGray }    
+    &.empty-list {
+      display: grid;
+      place-items: center;
+      height: 250px;
+      p { color: $darkGray }    
+    }
   }
   .btns-group {
     display: flex;
-    margin: 0 10px 10px 10px;
+    margin-top: 0;
     button {
       width: 100%;
       padding: 12px 0;
@@ -47,7 +45,7 @@
       &:disabled { cursor: not-allowed }
     }
   }
-  a { width: max-content; margin: auto }
+  > a { width: max-content; margin: 0 auto }
 }
 
 :host ::ng-deep slide-message div { max-width: 340px !important }
