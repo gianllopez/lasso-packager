@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SongsPackageService } from '../../../services/songs-package/songs-package.service';
 
 @Component({
-  selector: 'main-form',
-  templateUrl: './main-form.component.html',
-  styleUrls: ['./main-form.component.scss', '../create.styles.scss'],
+  selector: 'tags-form',
+  templateUrl: './tags-form.component.html',
+  styleUrls: ['./tags-form.component.scss', '../create.styles.scss'],
   host: { class: 'center-form' }})
-export class MainFormComponent implements OnInit {
+export class TagsFormComponent implements OnInit {
 
   form!: FormGroup;
 

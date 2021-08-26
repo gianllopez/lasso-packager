@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoverComponent } from './cover/cover.component';
-import { MainFormComponent } from './main-form/main-form.component';
+import { CoverComponent } from './pages/cover/cover.component';
+import { TagsFormComponent } from './pages/tags-form/tags-form.component';
 
 const routes: Routes = [
-  { path: '', component: MainFormComponent },
+  { path: '', component: TagsFormComponent },
   { path: 'cover', component: CoverComponent }
 ];
 

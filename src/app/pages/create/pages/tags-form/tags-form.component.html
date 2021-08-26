@@ -3,10 +3,10 @@
   <p>Fill the following fields to continue with the cover</p>
 </div>
 <div class="entries">
-  <custom-input [control]="form.get('url')" name="url" placeholder="Url"></custom-input>
-  <custom-input [control]="form.get('title')" name="title" placeholder="Title"></custom-input>
-  <custom-input [control]="form.get('artist')" name="artist" placeholder="Artist"></custom-input>
-  <custom-input [control]="form.get('album')" name="album" placeholder="Album"></custom-input>
+  <tag-input [control]="form.get('url')" name="url" placeholder="Url"></tag-input>
+  <tag-input [control]="form.get('title')" name="title" placeholder="Title"></tag-input>
+  <tag-input [control]="form.get('artist')" name="artist" placeholder="Artist"></tag-input>
+  <tag-input [control]="form.get('album')" name="album" placeholder="Album"></tag-input>
 </div>
 <div class="btns-group" style="width: calc(100% - 2em); margin: 0 auto">
   <action-button [goback]="true"></action-button>

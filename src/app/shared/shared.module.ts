@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SongComponent } from './components/song/song.component';
-import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { IconNameDirective } from './directives/icon-name.directive';
 import { SlideMessageComponent } from './components/slide-message/slide-message.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     NavbarComponent,
     SongComponent,
-    CustomInputComponent,
     ActionButtonComponent,
     IconNameDirective,
     SlideMessageComponent
@@ -26,7 +24,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     NavbarComponent,
     SongComponent,
-    CustomInputComponent,
     ActionButtonComponent,
     IconNameDirective,    
     SlideMessageComponent,

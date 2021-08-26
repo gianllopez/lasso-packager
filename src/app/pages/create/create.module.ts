@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CreateRoutingModule } from './create-routing.module';
-import { MainFormComponent } from './main-form/main-form.component';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { CoverComponent } from './cover/cover.component';
 import { FormsModule } from '@angular/forms';
-
+import { CreateRoutingModule } from './create-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { TagsFormComponent } from './pages/tags-form/tags-form.component';
+import { TagInputComponent } from './pages/tags-form/components/tag-input/tag-input.component';
+import { CoverComponent } from './pages/cover/cover.component';
 
 @NgModule({
   declarations: [
-    MainFormComponent,
-    CoverComponent
+    TagsFormComponent,
+    CoverComponent,
+    TagInputComponent
   ],
   imports: [
     CommonModule,
@@ -20,4 +20,4 @@ import { FormsModule } from '@angular/forms';
     SharedModule
   ]
 })
-export class CreateModule { }
+export class CreateModule {};
