@@ -3,13 +3,34 @@
   <p>Fill the following fields to continue with the cover</p>
 </div>
 <div class="entries">
-  <tag-input [control]="form.get('url')" name="url" placeholder="Url"></tag-input>
-  <tag-input [control]="form.get('title')" name="title" placeholder="Title"></tag-input>
-  <tag-input [control]="form.get('artist')" name="artist" placeholder="Artist"></tag-input>
-  <tag-input [control]="form.get('album')" name="album" placeholder="Album"></tag-input>
+  <tag-input
+    name="url"
+    placeholder="Url"
+    [control]="form.get('url')">
+  </tag-input>
+  <tag-input
+    name="title"
+    placeholder="Title"
+    [control]="form.get('title')">
+  </tag-input>
+  <tag-input
+    name="artist"
+    placeholder="Artist"
+    [control]="form.get('artist')">
+  </tag-input>
+  <tag-input
+    name="album"
+    placeholder="Album"
+    [control]="form.get('album')">
+  </tag-input>
 </div>
 <div class="btns-group" style="width: calc(100% - 2em); margin: 0 auto">
   <action-button [goback]="true"></action-button>
-  <action-button (click)="form.valid && onSubmit()" [disabled]="form.invalid"></action-button>
+  <action-button
+    (click)="form.valid && onSubmit()"
+    [disabled]="form.invalid">
+  </action-button>
 </div>
-<a routerLink="/center/information">Where can i find that information?</a>
+<a routerLink="/center/information">
+  Where can i find that information?
+</a>

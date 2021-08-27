@@ -4,16 +4,11 @@
 :host {
   @include center-page;
   > *:not(a) { margin: .5em 1em }
-  .presentation {
-    text-align: center;
-    p { color: $darkGray }
-  }
-  .entries {
-    custom-input { display: block; margin-bottom: 10px }  
-  }  
-  a {
+  .entries tag-input {
     display: block;
-    text-align: center;
-    margin: 10px 0;
-  }
+    margin-bottom: 10px;
+  }  
+  a { margin: 10px 0 }
 }
+
+// This stylesheet was reviewed (and summarized) on 08/26/2021;

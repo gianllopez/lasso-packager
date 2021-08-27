@@ -16,7 +16,7 @@ export class SongComponent implements OnChanges {
   @Input() data!: Song;
   @Input() index!: number;
   @Input() fetchingIndex!: number;
-  @Input() loading: boolean = true;
+  @Input() loading!: boolean;
 
   @Output() onAdd = new EventEmitter<Song>();
   @Output() onDelete = new EventEmitter<number>();
@@ -33,11 +33,27 @@ export class SongComponent implements OnChanges {
   async ngOnChanges(): Promise<void> {
     let turn = this.fetchingIndex === this.index;
     if (this.loading && turn) {
-      let res = await this.fetcher.getUrl(this.data.title || ''),
-      updatedSong = { ...this.data, ...res };
+      let updatedSong = { ...this.data };
+      if (!this.data.url) {
+        let res = await this.fetcher.getUrl(this.data.title);
+        updatedSong = { ...this.data, ...res };
+      };
       this.onFetched.emit(updatedSong);
       this.fetched = true;
     };
   };
+
+  // async ngOnChanges(): Promise<void> {
+  //   let turn = this.fetchingIndex === this.index;
+  //   if (this.loading && turn) {
+  //     let updatedSong = { ...this.data };
+  //     if (!this.data.url) {
+  //       let res = await this.fetcher.getUrl(this.data.title);
+  //       updatedSong = { ...updatedSong, ...res };
+  //     };
+  //     this.onFetched.emit(updatedSong);
+  //     this.fetched = true;
+  //   };
+  // };
 
 };

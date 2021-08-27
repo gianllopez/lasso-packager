@@ -3,7 +3,9 @@
   <p>If you don’t provide it, we’ll set a default cover</p>
 </div>
 <div class="cover-place">
-  <p *ngIf="!cover; else loadedCover">Cover Place</p>
+  <p *ngIf="!cover; else loadedCover">
+    Cover Place
+  </p>
   <ng-template #loadedCover>
     <img class="loaded-cover" [src]="preview" alt="" />
   </ng-template>
@@ -15,12 +17,23 @@
     [value]="cover"
     (change)="changeHandler($event, 'url')"
   />
-  <button (click)="fileway.click()">Upload</button>
-  <input #fileway type="file" (change)="changeHandler($event, 'file')" hidden />
+  <button (click)="fileway.click()">
+    Upload
+  </button>
+  <input #fileway
+    type="file" hidden 
+    (change)="changeHandler($event, 'file')"
+  />
 </div>
 <div class="btns-group" style="margin-top: 10px">
-  <action-button [goback]="true" (click)="backHandler()"></action-button>
-  <action-button (click)="completeHandler()"></action-button>
+  <action-button
+    [goback]="true"
+    (click)="backHandler()">
+  </action-button>
+  <action-button
+    label="Create song"
+    (click)="completeHandler()">
+  </action-button>
 </div>
 <slide-message
   [display]="added"

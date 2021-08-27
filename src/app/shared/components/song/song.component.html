@@ -1,5 +1,6 @@
 <figure> 
-  <img [src]="data?.cover ? data.cover : './assets/default-cover.jpg'" alt="">
+  <img [src]="data?.cover || './assets/default-cover.jpg'"
+    onerror="this.src = './assets/default-cover.jpg'" alt="">
 </figure>
 <div class="song-content">
   <div class="song-tags">

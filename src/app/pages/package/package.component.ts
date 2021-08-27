@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FetcherService } from 'src/app/services/fetcher/fetcher.service';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
@@ -8,7 +8,7 @@ import { Song } from 'src/app/shared/shared.models';
   selector: 'package',
   templateUrl: './package.component.html',
   styleUrls: ['./package.component.scss']})
-export class PackageComponent implements OnInit {
+export class PackageComponent implements OnInit, AfterViewChecked {
 
   _package: Song[] = [];
   newPackage: Song[] = [];
@@ -21,7 +21,8 @@ export class PackageComponent implements OnInit {
 
   constructor(
     private pkg: SongsPackageService,
-    private sanitizer: DomSanitizer) {};
+    private sanitizer: DomSanitizer,
+    private cdref: ChangeDetectorRef) {};
 
   loadPackage(): void {
     this._package = this.pkg.getPackage;
@@ -61,5 +62,9 @@ export class PackageComponent implements OnInit {
   };
   
   onDownload(): void { this.fetching = true };
+
+  ngAfterViewChecked(): void {
+    this.cdref.detectChanges();
+  };
 
 };

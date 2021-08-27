@@ -23,10 +23,14 @@
       Delete all
       <i class="uil uil-trash-alt"></i>
     </button>
-    <button class="download" (click)="isReady ? dl.click() : onDownload()" [disabled]="fetching || !_package.length">
-      {{ isReady ? 'Download' : 'Set up for download' }}      
-      <i [class]="isReady ? 'uil uil-import' : 'uil uil-sliders-v-alt'"></i>
-      <a #dl [href]="downloadUrl" download="lasso-package.json"></a>
+    <button class="download"
+      (click)="isReady ? dl.click() : onDownload()"
+      [disabled]="fetching || !_package.length">
+        {{ isReady ?
+            'Download' :
+            fetching ? 'Setting up...' : 'Set up for download' }}      
+        <i [class]="isReady ? 'uil uil-import' : 'uil uil-sliders-v-alt'"></i>
+        <a #dl [href]="downloadUrl" download="lasso-package.json"></a>
     </button>
   </div>
   <a routerLink="/center/information">

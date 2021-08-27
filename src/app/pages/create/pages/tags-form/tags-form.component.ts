@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'tags-form',
   templateUrl: './tags-form.component.html',
-  styleUrls: ['./tags-form.component.scss', '../create.styles.scss'],
-  host: { class: 'center-form' }})
+  styleUrls: ['./tags-form.component.scss', '../create.styles.scss']})
 export class TagsFormComponent implements OnInit {
 
   form!: FormGroup;
