@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CentersRoutingModule } from './centers-routing.module';
-import { DownloadComponent } from './download/download.component';
-import { InformationComponent } from './information/information.component';
-import { QuestionComponent } from './information/question/question.component';
+import { DownloadComponent } from './pages/download/download.component';
+import { InformationComponent } from './pages/information/information.component';
+import { QuestionComponent } from './pages/information/components/question/question.component';
 
 
 @NgModule({

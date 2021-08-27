@@ -1,9 +1,10 @@
-@import '../../../../shared/sass/variables';
+@import '../../../../../../shared/sass/variables';
 
 :host { width: 100%; max-width: 550px }
 .question-wrapper {
   width: calc(100% - 60px);
-  margin: 10px auto; padding: 10px 15px;
+  margin: 10px auto;
+  padding: 10px 15px;
   border-radius: 7px;
   box-shadow: 0px 0px 5px 2px #0000001a;
   user-select: none;
@@ -12,7 +13,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    i { font-size: 1.25em; transition-duration: .2s }
+    i {
+      font-size: 1.25em;
+      transition-duration: .2s;
+    }
   }
   .answer {
     border-left: 3px solid $lightBlue;    
@@ -28,3 +32,5 @@
     }
   }
 }
+
+// This stylesheet was reviewed (and summarized) on 08/27/2021;

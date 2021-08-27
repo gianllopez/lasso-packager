@@ -1,17 +1,16 @@
-@import '../../../shared/sass/variables';
+@import '../../../../shared/sass/variables';
 @import '../centers.styles.scss';
 
 .info-center {
-  padding: 15% 0;
   .header {
     .presentation {
-      text-align: center;
       font-size: 1.3em;
-      p { font-weight: bold; color: $darkGray }
+      h1, p { line-height: 1 }
+      p { font-weight: bold }
     }
     .hero {
-      margin: 10px auto; padding: 0 2em;
-      max-width: 350px;
+      margin: 10px auto;
+      padding: 0 2em;
       text-align: center;
       figure img { width: 100% }
       h3 {
@@ -22,13 +21,16 @@
     }
   }
   .questions .questions-list {
-    display: flex; flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    question a { display: inline }
   }
+  @media (max-width: 767px) { padding: 15% 0 }  
   @media (min-width: 768px) {
-    padding: 0;    
     .header { @include aside-section }
     .questions { @include aside-section(false) }
   }
-  a { display: inline }
 }
+
+// This stylesheet was reviewed (and summarized) on 08/27/2021;

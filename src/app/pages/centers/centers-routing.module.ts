@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DownloadComponent } from './download/download.component';
-import { InformationComponent } from './information/information.component';
+import { DownloadComponent } from './pages/download/download.component';
+import { InformationComponent } from './pages/information/information.component';
 
 const routes: Routes = [
   { path: 'download', component: DownloadComponent },
