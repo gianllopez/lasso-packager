@@ -10,16 +10,14 @@ export class TagsFormComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router) {};
+  constructor(private fb: FormBuilder, private router: Router) {};
 
   buildForm(): void {
     this.form = this.fb.group({
       url: ['', [ Validators.required ]],
-      title: ['', [ Validators.required ]],
-      artist: ['', [ Validators.required ]],
-      album: ['', [ Validators.required ]]
+      title: ['', []],
+      artist: ['', []],
+      album: ['', []]
     });
   };
 

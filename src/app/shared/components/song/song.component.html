@@ -4,9 +4,9 @@
 </figure>
 <div class="song-content">
   <div class="song-tags">
-    <p>{{ data?.title }}</p>
-    <p>{{ data?.artist }}</p>
-    <p>{{ data?.album }}</p>
+    <p>{{ data?.title || 'Unknow' }}</p>
+    <p>{{ data?.artist || 'Unknow' }}</p>
+    <p>{{ data?.album || 'Unknow' }}</p>
   </div>
   <i class="uil uil-check-circle fetched-icon" *ngIf="fetched; else rest"></i>
   <ng-template #rest>
