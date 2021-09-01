@@ -21,6 +21,15 @@ export class CoverComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private pkg: SongsPackageService) {};
 
+  ngOnInit(): void {
+    let { data } = window.history.state;
+    if (data) {
+      this.data = data;
+    } else {
+      // this.router.navigateByUrl('');
+    };
+  };
+  
   getSafeUrl(source: File | string | null | undefined): CustomSafeUrl {
     let url = URL.createObjectURL(source),
     safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -30,7 +39,7 @@ export class CoverComponent implements OnInit {
   changeHandler(e: Event, type: string): void {
     let { value, files } = e.target as HTMLInputElement,
     fileSource = this.getSafeUrl(files?.item(0));
-    this.cover = type === 'url' ? value : fileSource.url;
+    this.cover = value;
     if (type === 'file') {
       this.preview = fileSource.safeUrl;
     };
@@ -52,13 +61,6 @@ export class CoverComponent implements OnInit {
     });
   };
 
-  ngOnInit(): void {
-    let { data } = window.history.state;
-    if (data) {
-      this.data = data;
-    } else {
-      this.router.navigateByUrl('');
-    };
-  };
+ 
 
 }
