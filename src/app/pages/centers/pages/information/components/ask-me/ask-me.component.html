@@ -5,19 +5,30 @@
   </div>
   <form class="entries" [formGroup]="form">
     <field [control]="form.get('name')" name="name" placeholder="Name"></field>
-    <field
-      [control]="form.get('email')"
-      placeholder="Email"
-      name="email">
+    <field [control]="form.get('email')" placeholder="Email" name="email">
     </field>
     <field
+      placeholder="What's your question?"
       [control]="form.get('question')"
-      name="question"
-      placeholder="What's your question?">
+      name="question">
     </field>
   </form>
   <div class="btns" style="display: flex">
     <button class="cancel" (click)="cancelHandler()">Cancel</button>
-    <button class="submit" [disabled]="!form.valid">Submit</button>
+    <button class="submit" (click)="onSubmit()" [disabled]="!form.valid || loading">
+      <div class="loader" *ngIf="loading; else text"></div>
+      <ng-template #text>
+        {{ sent ? "It's done!" : "Submit" }}
+      </ng-template>
+    </button>
+  </div>
+  <div class="on-sent presentation"
+    [ngStyle]="{ opacity: sent ? 1 : 0, color: error && 'red' }">
+    <h4>{{ error ? "Something went wrong" : "Thanks dude!" }}</h4>
+    <p>
+      {{ error
+          ? "Please, try again later"
+          : "If i find your question interesting, I'll reply here in the information center." }}
+    </p>
   </div>
 </div>

@@ -48,10 +48,8 @@ export class HomeComponent implements OnDestroy, DoCheck {
   };
 
   ngDoCheck(): void {
-    if (this.songs.length > 0) {
-      if (!this.song) { this.songs = [] };
-      this.loading = false;
-    };
+    if (!this.song) { this.songs = [] };
+    if (this.songs.length > 0) { this.loading = false };
   };
 
   onScroll(): void {

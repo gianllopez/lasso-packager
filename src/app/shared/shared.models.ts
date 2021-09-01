@@ -15,3 +15,9 @@ export interface CustomSafeUrl {
   url: string;
   safeUrl: SafeResourceUrl;
 };
+
+export interface Question {
+  name: string;
+  email: string;
+  question: string;
+};
