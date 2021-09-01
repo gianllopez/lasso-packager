@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'tag-input',
-  templateUrl: './tag-input.component.html',
-  styleUrls: ['./tag-input.component.scss']})
-export class TagInputComponent {
+  selector: 'field',
+  templateUrl: './field.component.html',
+  styleUrls: ['./field.component.scss'],
+  encapsulation: ViewEncapsulation.None })
+export class FieldComponent {
 
   @Input() name!: string;
   @Input() placeholder!: string;

@@ -1,6 +1,6 @@
-@import '../../../../../../shared/sass/variables';
+@import '/src/app/shared/sass/variables';
 
-.tag-input {
+.field {
   position: relative;
   input {
     background-color: $lightGray;

@@ -19,6 +19,23 @@
         color: $darkGray;
       }
     }
+    .ask-me-smt {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;      
+      p {
+        width: max-content;
+        margin: auto;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+          color: $lightBlue;
+        }
+      }
+      
+    }
   }
   .questions .questions-list {
     display: flex;
@@ -31,6 +48,11 @@
     .header { @include aside-section }
     .questions { @include aside-section(false) }
   }
+  @media (min-width: 1175px) {
+    .questions .questions-list {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      padding: 0 1.5em;    
+    }
+  }
 }
-
-// This stylesheet was reviewed (and summarized) on 08/27/2021;

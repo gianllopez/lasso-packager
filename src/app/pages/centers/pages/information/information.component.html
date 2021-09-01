@@ -10,12 +10,16 @@
       </figure>
       <h3>
         Here you can find information about Lasso, how does it work
-        and other useful things for the correct use of this page.
+        and other useful things for the correct use of this app.
       </h3>
     </div>
+    <div class="ask-me-smt">
+      <p (click)="onAsk()">Ask me something</p>
+    </div>
+    <ask-me [show]="asking" (onCancel)="toClose()"></ask-me>
   </div>
   <div class="questions">
-    <h2 style="text-align: center; padding: .7em 0">Frequent questions</h2>
+    <h2 style="text-align: center; padding: .7em 0 0.2em 0">Frequently asked questions</h2>
     <div class="questions-list">
       <question title="What is Lasso?">
         Lasso is a <strong>complete music downloader</strong> that use

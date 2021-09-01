@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TagInputComponent } from './tag-input.component';
+import { AskMeComponent } from './ask-me.component';
 
-describe('TagInputComponent', () => {
-  let component: TagInputComponent;
-  let fixture: ComponentFixture<TagInputComponent>;
+describe('AskMeComponent', () => {
+  let component: AskMeComponent;
+  let fixture: ComponentFixture<AskMeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TagInputComponent ]
+      declarations: [ AskMeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TagInputComponent);
+    fixture = TestBed.createComponent(AskMeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

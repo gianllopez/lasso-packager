@@ -4,7 +4,7 @@
 :host {
   @include center-page;
   > *:not(a) { margin: .5em 1em }
-  .entries tag-input {
+  .entries field {
     display: block;
     margin-bottom: 10px;
   }  
