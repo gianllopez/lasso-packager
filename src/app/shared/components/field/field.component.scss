@@ -2,14 +2,16 @@
 
 .field {
   position: relative;
+  border-radius: 5px;
+  transition-duration: .25s;
   input {
     background-color: $lightGray;
     padding: 12.5px 10px;
-    border-radius: 5px;
     width: calc(100% - 20px);
     border: none;
     outline: none;
-    transition-duration: .25s;
+    border-radius: inherit;
+    transition-duration: inherit;
     &.valid {
       padding-top: 25px;
       & + label { top: 15px }
@@ -40,5 +42,9 @@
     font-weight: bold;
     transition-duration: .35s;
     cursor: pointer;
+  }
+  &.invalid {
+    box-shadow: 0 0 3px 2px #ff000030;
+    input, label { color: lighten($babyRed, 10%) }  
   }
 }

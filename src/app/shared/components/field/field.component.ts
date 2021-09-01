@@ -15,5 +15,10 @@ export class FieldComponent {
   get formControl() {
     return this.control as FormControl;
   };
+
+  get isInvalid(): boolean {
+    let { touched, invalid } = this.formControl;    
+    return touched && invalid;
+  };
   
 };

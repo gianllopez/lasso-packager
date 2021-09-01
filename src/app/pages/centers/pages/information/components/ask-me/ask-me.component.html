@@ -1,15 +1,23 @@
-<form class="ask-form" [ngClass]="{ 'show': show }">
+<div class="ask-form" [ngClass]="{ show: show }">
   <div class="header">
     <h3>Fill the question data</h3>
     <p>I'll try to reply as soon as posible</p>
   </div>
-  <div class="entries">
-    <field name="name" placeholder="Name"></field>
-    <field name="email" placeholder="Email"></field>
-    <field name="question" placeholder="What's your question?"></field>
-  </div>
+  <form class="entries" [formGroup]="form">
+    <field [control]="form.get('name')" name="name" placeholder="Name"></field>
+    <field
+      [control]="form.get('email')"
+      placeholder="Email"
+      name="email">
+    </field>
+    <field
+      [control]="form.get('question')"
+      name="question"
+      placeholder="What's your question?">
+    </field>
+  </form>
   <div class="btns" style="display: flex">
-    <button type="button" class="cancel" (click)="cancelHandler()">Cancel</button>
-    <button type="button" class="submit">Submit</button>
+    <button class="cancel" (click)="cancelHandler()">Cancel</button>
+    <button class="submit" [disabled]="!form.valid">Submit</button>
   </div>
-</form>
+</div>

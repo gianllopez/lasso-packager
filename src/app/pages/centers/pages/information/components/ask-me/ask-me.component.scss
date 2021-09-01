@@ -34,7 +34,10 @@
       width: 40%;
       margin-right: 10px;
     }   
-    &.submit { background-color: $lightBlue }
+    &.submit {
+      background-color: $lightBlue;
+      &:disabled { cursor: not-allowed }
+    }
   }
   &.show {
     pointer-events: all;
