@@ -30,7 +30,8 @@ export class CoverComponent implements OnInit {
     };
   };
   
-  getSafeUrl(source: File | string | null | undefined): CustomSafeUrl {
+  getSafeUrl(source: File | string | null | undefined): CustomSafeUrl | undefined {
+    if (!source) return;
     let url = URL.createObjectURL(source),
     safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     return { url, safeUrl };
@@ -39,9 +40,11 @@ export class CoverComponent implements OnInit {
   changeHandler(e: Event, type: string): void {
     let { value, files } = e.target as HTMLInputElement,
     fileSource = this.getSafeUrl(files?.item(0));
-    this.cover = value;
-    if (type === 'file') {
-      this.preview = fileSource.safeUrl;
+    if (fileSource) {
+      this.cover = value;
+      if (type === 'file') {
+        this.preview = fileSource.safeUrl;
+      };
     };
   };
 

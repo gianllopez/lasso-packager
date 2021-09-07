@@ -8,6 +8,9 @@
     placeholder="Url"
     [control]="form.get('url')">
   </field>
+  <p class="invalid-yt-url" *ngIf="patternError">
+    Invalid Youtube URL
+  </p>
   <field
     name="title"
     placeholder="Title"

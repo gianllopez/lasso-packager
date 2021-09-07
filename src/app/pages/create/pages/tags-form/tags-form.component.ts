@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,10 @@ export class TagsFormComponent implements OnInit {
 
   buildForm(): void {
     this.form = this.fb.group({
-      url: ['', [ Validators.required ]],
+      url: ['', [
+        Validators.required,
+        Validators.pattern(/^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/)
+      ]],
       title: ['', []],
       artist: ['', []],
       album: ['', []]
@@ -30,6 +33,11 @@ export class TagsFormComponent implements OnInit {
   onSubmit(): void {
     let data = this.form.value;
     this.router.navigate(['create/cover'], { state: { data } });
+  };
+
+  get patternError(): boolean {
+    let { dirty, errors } = this.form.get('url') as FormControl;
+    return dirty && errors?.pattern;
   };
 
 };
