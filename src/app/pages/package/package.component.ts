@@ -44,7 +44,6 @@ export class PackageComponent implements OnInit, AfterViewChecked {
     this.loadPackage();
   };
 
-  // Review good:
   updateFetching(updatedSong: Song): void {
     if (this.findex < this._package.length) {
       this.newPackage.push(updatedSong);

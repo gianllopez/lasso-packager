@@ -43,7 +43,10 @@
     justify-content: center;
     question a { display: inline }
   }
-  @media (max-width: 767px) { padding: 15% 0 }  
+  @media (max-width: 767px) {
+    padding: 15% 0;
+    .ask-me-smt { display: none }
+  }  
   @media (min-width: 768px) {
     .header { @include aside-section }
     .questions { @include aside-section(false) }
