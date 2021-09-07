@@ -15,7 +15,7 @@ export class PackageComponent implements OnInit, AfterViewChecked {
   deleting = false;
   fetching = false;
   isReady = false;
-  findex = 0; // fetching index
+  findex = 0;
 
   downloadUrl!: SafeUrl;
 

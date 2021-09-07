@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { CustomSafeUrl, Song } from 'src/app/shared/shared.models';
@@ -15,6 +15,8 @@ export class CoverComponent implements OnInit {
   preview!: SafeUrl;
 
   added = false;
+
+  @ViewChild('coverinput') coverInput!: ElementRef;
 
   constructor(
     private router: Router,
@@ -37,14 +39,12 @@ export class CoverComponent implements OnInit {
     return { url, safeUrl };
   };
 
-  changeHandler(e: Event, type: string): void {
+  changeHandler(e: Event): void {
     let { value, files } = e.target as HTMLInputElement,
     fileSource = this.getSafeUrl(files?.item(0));
     if (fileSource) {
       this.cover = value;
-      if (type === 'file') {
-        this.preview = fileSource.safeUrl;
-      };
+      this.preview = fileSource.safeUrl;
     };
   };
 
@@ -64,6 +64,11 @@ export class CoverComponent implements OnInit {
     });
   };
 
- 
+  onClearCover(): void {
+    this.cover = '';
+    this.preview = '';
+    let input = <HTMLInputElement>this.coverInput.nativeElement;
+    input.value = '';
+  };
 
-}
+};

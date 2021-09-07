@@ -7,22 +7,30 @@
     Cover Place
   </p>
   <ng-template #loadedCover>
-    <img class="loaded-cover" [src]="preview" alt="" />
+    <figure class="loaded-cover">
+      <img [src]="preview" alt=""/>
+      <div class="clear-cover" (click)="onClearCover()">
+        <p>Clear cover</p>
+        <i class="uil uil-trash-alt"></i>
+      </div>
+    </figure>
   </ng-template>
 </div>
 <div class="cover-input">
   <input
     type="text"
-    placeholder="Url or upload locally"
     [value]="cover"
-    (change)="changeHandler($event, 'url')"
+    placeholder="Loaded cover"
+    disabled
   />
-  <button (click)="fileway.click()">
+  <button (click)="coverinput.click()">
     Upload
   </button>
-  <input #fileway
-    type="file" hidden 
-    (change)="changeHandler($event, 'file')"
+  <input #coverinput
+    type="file"
+    accept="image/png, image/jpeg"
+    (change)="changeHandler($event)"
+    hidden 
   />
 </div>
 <div class="btns-group" style="margin-top: 10px">
