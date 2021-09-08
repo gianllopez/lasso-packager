@@ -1,7 +1,9 @@
 <div class="download-center">
-  <div class="page-header presentation">
-    <h2>Download center</h2>
-    <p>Here you can get our desktop app</p>
+  <ng-container *ngIf="!isMobile; else mob">
+    <div class="page-header presentation">
+      <h2>Download center</h2>
+      <p>Here you can get our desktop app</p>
+    </div>
     <figure class="hero">
       <img src="/assets/ilustrations/download.svg" alt="" />
     </figure>
@@ -13,5 +15,13 @@
     <a href="https://firebasestorage.googleapis.com/v0/b/lassodl.appspot.com/o/lasso-1.0.0.exe?alt=media&token=53323509-42eb-4b76-b241-85362bfa2d21" download>
       Download
     </a>
-  </div>
+  </ng-container>
+  <ng-template #mob>
+    <div class="not-allowed-mob">
+      <figure>
+        <img src="/assets/icons/not-allowed-mob.svg" alt="">
+      </figure>
+      <p>Lasso app is unavailable for mobile users</p>
+    </div>
+  </ng-template>
 </div>

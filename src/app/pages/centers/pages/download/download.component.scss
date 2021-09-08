@@ -4,9 +4,10 @@
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% - 10px);
+  width: calc(100% - 2em);
   font-size: 1.3em;
   max-width: 1000px;
+  margin: auto;
   figure {
     width: 25%;
     margin: 15px auto 0 auto;
@@ -31,5 +32,13 @@
       background-color: $lightBlue;
       color: white;
     }
+  }
+  p { text-align: center; color: $darkGray };
+  .not-allowed-mob {
+    figure {
+      width: 50%; max-width: 300px;
+      margin: 10px auto;
+    }
+    p { font-weight: bold }
   }
 }

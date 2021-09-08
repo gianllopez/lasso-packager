@@ -5,6 +5,10 @@
   background-color: white;
   border-radius: $radiusBase;
   max-height: 70px;
+  overflow-x: scroll;
+  &::-webkit-scrollbar { display: none }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   figure, .song-content { display: flex; align-items: center }
   figure { margin: min(2%, 10px);
     img { height: 55px; border-radius: 6px }
@@ -52,6 +56,25 @@
         animation: spin 1s infinite;
       }
     }
+  }
+  @media (max-width: 650px) {
+    position: relative;
+    .actions {
+      position: absolute; right: 0;
+      width: calc(100% - 20px); height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      margin: 0 !important; padding: 0 10px;
+      border-left: 2px solid $darkGray;
+      transform: translateX(100%);
+      transition-duration: .25s;
+      a img { margin: 0 !important }
+      .del-action { font-size: 2em !important }
+    }
+    &:hover .actions { transform: initial }
+    
   }
 }
 
