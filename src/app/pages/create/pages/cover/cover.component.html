@@ -19,7 +19,7 @@
 <div class="cover-input">
   <input
     type="text"
-    [value]="cover"
+    [value]="cover?.name"
     placeholder="Loaded cover"
     disabled
   />
@@ -40,7 +40,8 @@
   </action-button>
   <action-button
     label="Create song"
-    (click)="completeHandler()">
+    (click)="completeHandler()"
+    [disabled]="loading">
   </action-button>
 </div>
 <slide-message

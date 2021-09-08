@@ -1,8 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 import { CustomSafeUrl, Song } from 'src/app/shared/shared.models';
 import { SongsPackageService } from 'src/app/services/songs-package/songs-package.service';
+import { FirebaseService } from 'src/app/services/firebase/firebase.service';
 
 @Component({
   selector: 'cover',
@@ -11,14 +13,16 @@ import { SongsPackageService } from 'src/app/services/songs-package/songs-packag
 export class CoverComponent implements OnInit {
 
   data!: Song;
-  cover = '';
-  preview!: SafeUrl;
+  cover!: File | undefined;
+  preview!: SafeUrl | undefined;
 
   added = false;
+  loading = false;
 
-  @ViewChild('coverinput') coverInput!: ElementRef;
+  @ViewChild('coverinput') cvInput!: ElementRef;
 
   constructor(
+    private firebase: FirebaseService,
     private router: Router,
     private sanitizer: DomSanitizer,
     private pkg: SongsPackageService) {};
@@ -28,7 +32,7 @@ export class CoverComponent implements OnInit {
     if (data) {
       this.data = data;
     } else {
-      // this.router.navigateByUrl('');
+      this.router.navigateByUrl('');
     };
   };
   
@@ -40,22 +44,29 @@ export class CoverComponent implements OnInit {
   };
 
   changeHandler(e: Event): void {
-    let { value, files } = e.target as HTMLInputElement,
-    fileSource = this.getSafeUrl(files?.item(0));
-    if (fileSource) {
-      this.cover = value;
-      this.preview = fileSource.safeUrl;
+    let { files } = e.target as HTMLInputElement,
+    file = files?.item(0);
+    if (file) {
+      let fileSource = this.getSafeUrl(file);
+      this.cover = file;
+      this.preview = fileSource?.safeUrl;
     };
   };
 
-  completeHandler(): void {
-    let newSong = { ...this.data, cover: this.cover };
+  async completeHandler(): Promise<void> {
+    let newSong = { ...this.data };
+    if (this.cover) {
+      this.loading = true;
+      let coverUrl = await this.firebase.uploadCover(this.cover);
+      this.loading = false;
+      newSong = { ...newSong, cover: coverUrl };
+    };
     this.pkg.addSong(newSong, false);
     this.added = true;
     setTimeout(() => {
       this.added = false;
       this.router.navigateByUrl('');
-    }, 700);
+    }, 1000);
   };
 
   backHandler(): void {
@@ -65,9 +76,9 @@ export class CoverComponent implements OnInit {
   };
 
   onClearCover(): void {
-    this.cover = '';
+    this.cover = undefined;
     this.preview = '';
-    let input = <HTMLInputElement>this.coverInput.nativeElement;
+    let input = <HTMLInputElement>this.cvInput.nativeElement;
     input.value = '';
   };
 
