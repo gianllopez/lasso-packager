@@ -9,7 +9,7 @@
   <ng-template #loadedCover>
     <figure class="loaded-cover">
       <img [src]="preview" alt=""/>
-      <div class="clear-cover" (click)="onClearCover()">
+      <div class="clear-cover" (click)="!loading && onClearCover()">
         <p>Clear cover</p>
         <i class="uil uil-trash-alt"></i>
       </div>
